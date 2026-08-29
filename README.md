@@ -99,15 +99,53 @@ npm run preview    # serve dist/ localmente
 
 ## 📦 Deploy no HostGator
 
-1. `npm run build` — gera `dist/` completo (HTML + assets + .htaccess + robots + sitemap).
+Há **duas formas** de subir o site:
+
+### Opção A — Automática (GitHub Actions → FTP)
+
+Já configurado em `.github/workflows/deploy.yml`. A cada `git push` na `main`,
+o GitHub faz o build e envia para o servidor via FTP.
+
+**Setup único** (no GitHub):
+
+1. Vá em **Settings → Secrets and variables → Actions → New repository secret**
+2. Crie os seguintes secrets:
+
+   | Nome              | Valor                              |
+   | ----------------- | ---------------------------------- |
+   | `FTP_HOST`        | `ftp.nextw.com.br`                 |
+   | `FTP_USERNAME`    | seu usuário do cPanel              |
+   | `FTP_PASSWORD`    | sua senha do cPanel                |
+   | `FTP_REMOTE_DIR`  | `/public_html` ou `/public_html/nextw.com.br` (ver abaixo) |
+
+3. Descubra o `FTP_REMOTE_DIR` correto:
+   - No cPanel → **File Manager** → navegue até a pasta do domínio
+   - Se `nextw.com.br` é o domínio principal: use `/public_html`
+   - Se é domínio adicional: use `/public_html/nextw.com.br`
+   - O caminho aparece na barra de endereço do File Manager
+
+4. Pronto. Faça um commit vazio para testar:
+   ```bash
+   git commit --allow-empty -m "chore: trigger deploy"
+   git push
+   ```
+5. Acompanhe em: `https://github.com/BrunoAtrios/nextwave-site/actions`
+
+### Opção B — Manual (upload via cPanel)
+
+1. `npm run build` — gera `dist/` completo.
 2. Acesse o **Gerenciador de Arquivos** do cPanel.
 3. Envie o **conteúdo** de `dist/` para `public_html/` (sobrescreva).
-4. Pronto. O `.htaccess` cuida de:
-   - SPA routing (qualquer rota cai no `index.html`)
-   - Cache imutável para assets com hash (1 ano)
-   - Compressão gzip (e fallback Brotli quando disponível)
-   - Headers de segurança (CSP, HSTS, X-Frame-Options, Permissions-Policy)
-   - MIME types (`.webp`, `.woff2`, etc.)
+
+---
+
+### O que o `.htaccess` cuida
+
+- SPA routing (qualquer rota cai no `index.html`)
+- Cache imutável para assets com hash (1 ano)
+- Compressão gzip (e fallback Brotli quando disponível)
+- Headers de segurança (CSP, HSTS, X-Frame-Options, Permissions-Policy)
+- MIME types (`.webp`, `.woff2`, etc.)
 
 ### Configurar DNS
 

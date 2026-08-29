@@ -1,0 +1,74 @@
+name: Deploy to HostGator
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostgator
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: Prepare deploy payload
+        run: |
+          # Garante .htaccess, robots.txt e sitemap.xml mesmo se o build falhar em copia-los
+          cp -f public/.htaccess dist/.htaccess || true
+          cp -f public/robots.txt dist/robots.txt || true
+          cp -f public/sitemap.xml dist/sitemap.xml || true
+          ls -la dist
+
+      - name: Deploy to HostGator via FTP
+        uses: SamKirkland/ftp-action@v2.1.0
+        with:
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: dist
+          remoteDir: ${{ secrets.FTP_REMOTE_DIR }}
+          port: 21
+          protocol: ftp
+          secure: false
+          dryRun: false
+          exclude: |
+            **/.git
+            **/.git/**
+            **/node_modules/**
+            **/README.md
+
+      - name: Deployment summary
+        if: success()
+        run: |
+          echo "✅ Deploy concluído em https://www.nextw.com.br"
+          echo "📅 $(date -u)"
+
+      - name: Deployment failed
+        if: failure()
+        run: |
+          echo "❌ Deploy falhou — verifique os logs acima"
+          echo "Possíveis causas: credenciais FTP inválidas, diretório remoto errado, ou build com erro"
