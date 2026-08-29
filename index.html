@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0f" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>NextWave | Engenharia e Automação Além do Óbvio — Americana/SP</title>
+    <meta name="description" content="NextWave é o centro do ecossistema ServOS. Automação residencial com IA, gestão empresarial (ERP), obras e infraestrutura inteligente. Atendimento em todo o Brasil, base em Americana-SP." />
+    <meta name="keywords" content="NextWave, Next Wave, ServOS, automação, IA, gestão empresarial, obras, ERP, infraestrutura, NFC, UHF, ESP32, automação residencial, inteligência artificial, Americana, São Paulo" />
+    <meta name="author" content="Next Wave Engenharia e Automação" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://www.nextw.com.br/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Next Wave" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://www.nextw.com.br/" />
+    <meta property="og:title" content="NextWave | Engenharia e Automação Além do Óbvio" />
+    <meta property="og:description" content="NextWave é o centro do ecossistema ServOS. Automação residencial com IA, gestão empresarial, obras e infraestrutura inteligente." />
+    <meta property="og:image" content="https://www.nextw.com.br/3.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Next Wave — Engenharia e Automação" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NextWave | Engenharia e Automação" />
+    <meta name="twitter:description" content="NextWave é o centro do ecossistema ServOS. Automação residencial com IA, gestão empresarial, obras e infraestrutura inteligente." />
+    <meta name="twitter:image" content="https://www.nextw.com.br/3.webp" />
+    <meta name="twitter:image:alt" content="Next Wave — Engenharia e Automação" />
+
+    <!-- Performance: DNS prefetch + preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload de fontes críticas (reduz CLS e melhora LCP) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
+
+    <!-- Preload logo (LCP) -->
+    <link rel="preload" as="image" href="/3.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- JSON-LD: Organization + LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NextWave Engenharia e Automação",
+      "alternateName": "Next Wave",
+      "url": "https://www.nextw.com.br",
+      "logo": "https://www.nextw.com.br/3.webp",
+      "description": "NextWave é o centro do ecossistema ServOS. Automação residencial com IA, gestão empresarial, obras e infraestrutura inteligente.",
+      "telephone": "+55-19-99124-0130",
+      "email": "contato@nextw.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Americana",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "areaServed": "BR",
+      "sameAs": []
+    }
+    </script>
+
+    <style>
+      /* Splash inline para evitar FOUC e melhorar perceived performance */
+      html { background: #0a0a0f; }
+      body { margin: 0; background: #0a0a0f; color: #f8fafc; font-family: Inter, system-ui, sans-serif; }
+      #splash {
+        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+        background: #0a0a0f; z-index: 100000; transition: opacity 0.4s ease;
+      }
+      #splash.hide { opacity: 0; pointer-events: none; }
+      #splash .dot {
+        width: 12px; height: 12px; border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #22d3ee);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+        animation: splash-pulse 1.2s ease-in-out infinite;
+      }
+      @keyframes splash-pulse {
+        0%, 100% { transform: scale(0.8); opacity: 0.7; }
+        50% { transform: scale(1.2); opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="splash" aria-hidden="true"><div class="dot"></div></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener("load", function () {
+        var s = document.getElementById("splash");
+        if (s) {
+          setTimeout(function () {
+            s.classList.add("hide");
+            setTimeout(function () { s.remove(); }, 500);
+          }, 200);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,653 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a24;
+  --accent-primary: #6366f1;
+  --accent-glow: #818cf8;
+  --accent-cyan: #22d3ee;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border: #1e293b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Grid Pattern Background */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(18, 18, 26, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-strong {
+  background: rgba(18, 18, 26, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Glow Effect */
+.glow {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+}
+
+/* Noise Texture */
+.noise {
+  position: relative;
+}
+
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.015;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gradient Mesh Backgrounds */
+.mesh-gradient {
+  background:
+    radial-gradient(
+      ellipse at 20% 50%,
+      rgba(99, 102, 241, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(34, 211, 238, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 80%,
+      rgba(139, 92, 246, 0.05) 0%,
+      transparent 50%
+    );
+}
+
+.mesh-gradient-warm {
+  background:
+    radial-gradient(
+      ellipse at 30% 40%,
+      rgba(245, 158, 11, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 70% 60%,
+      rgba(239, 68, 68, 0.04) 0%,
+      transparent 50%
+    );
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #22d3ee);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* Particle Canvas */
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Card Shine Effect */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 60%
+  );
+  transform: rotate(0deg);
+  transition: transform 0.6s ease;
+}
+
+.card-shine:hover::before {
+  transform: rotate(180deg);
+}
+
+/* Animated Border Gradient */
+.border-gradient {
+  position: relative;
+  border-radius: 16px;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 17px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.3),
+    rgba(34, 211, 238, 0.3),
+    rgba(99, 102, 241, 0.1)
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.border-gradient:hover::before {
+  opacity: 1;
+}
+
+/* WhatsApp Float Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9998;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+
+/* Text Reveal Animation */
+@keyframes text-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.text-reveal {
+  animation: text-reveal 0.8s ease forwards;
+}
+
+/* Pulse Ring */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.pulse-ring::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #25d366;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+/* Skip Link (acessibilidade) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10000;
+  padding: 12px 20px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+/* Focus visível global */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced motion (acessibilidade) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .noise::before,
+  .particle-canvas {
+    display: none;
+  }
+}
+
+/* Performance: GPU para elementos animados */
+.animate-float,
+.animate-float-delayed,
+.scroll-progress,
+.whatsapp-float,
+.card-shine,
+.border-gradient {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ============================================================
+   IA Section — Neural Network Visual Effects
+   ============================================================ */
+
+.neural-stage {
+  position: relative;
+  isolation: isolate;
+}
+
+.neural-stage::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(34, 211, 238, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+  filter: blur(40px);
+  z-index: -1;
+  animation: neural-pulse 8s ease-in-out infinite;
+}
+
+@keyframes neural-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.neural-core {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neural-orb {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 40%),
+    linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f97316 100%);
+  box-shadow:
+    0 0 60px rgba(139, 92, 246, 0.6),
+    0 0 120px rgba(236, 72, 153, 0.4),
+    inset 0 0 40px rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: neural-breath 4s ease-in-out infinite;
+}
+
+@keyframes neural-breath {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(139, 92, 246, 0.6), 0 0 120px rgba(236, 72, 153, 0.4); }
+  50% { transform: scale(1.06); box-shadow: 0 0 90px rgba(139, 92, 246, 0.9), 0 0 180px rgba(236, 72, 153, 0.6); }
+}
+
+/* Ringues orbitais */
+.neural-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  pointer-events: none;
+}
+.neural-ring.r1 { inset: 8%; border-color: rgba(139, 92, 246, 0.35); animation: ring-spin 20s linear infinite; }
+.neural-ring.r2 { inset: 16%; border-color: rgba(34, 211, 238, 0.25); border-style: dashed; animation: ring-spin 30s linear infinite reverse; }
+.neural-ring.r3 { inset: 24%; border-color: rgba(236, 72, 153, 0.2); animation: ring-spin 40s linear infinite; }
+
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Pontos neurais nas órbitas */
+.neural-node {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 12px #22d3ee, 0 0 24px rgba(34, 211, 238, 0.6);
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+}
+
+.neural-connection {
+  stroke: url(#neuralGradient);
+  stroke-width: 1;
+  fill: none;
+  filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.6));
+}
+
+.neural-connection.pulse {
+  animation: connection-flow 2s ease-in-out infinite;
+}
+
+@keyframes connection-flow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Scanlines cinematográficas */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(255, 255, 255, 0.015) 3px,
+    rgba(255, 255, 255, 0.015) 4px
+  );
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Hexágono decorativo ao redor */
+.h6-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(60deg, transparent 49%, rgba(139, 92, 246, 0.08) 50%, transparent 51%),
+    linear-gradient(120deg, transparent 49%, rgba(139, 92, 246, 0.08) 50%, transparent 51%),
+    linear-gradient(180deg, transparent 49%, rgba(34, 211, 238, 0.06) 50%, transparent 51%);
+  background-size: 60px 60px, 60px 60px, 60px 60px;
+  pointer-events: none;
+  mask: radial-gradient(circle, black 30%, transparent 70%);
+  -webkit-mask: radial-gradient(circle, black 30%, transparent 70%);
+}
+
+/* Data stream vertical */
+.data-stream {
+  position: absolute;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, #22d3ee, transparent);
+  opacity: 0.5;
+  animation: stream-flow 3s linear infinite;
+}
+
+@keyframes stream-flow {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+/* Feature card com borda animada IA */
+.ai-feature-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(18, 18, 26, 0.7) 0%, rgba(18, 18, 26, 0.9) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.ai-feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(139, 92, 246, 0.08) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.ai-feature-card:hover {
+  border-color: rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);
+}
+
+.ai-feature-card:hover::before {
+  transform: translateX(100%);
+}
+
+/* Status badge IA */
+.ai-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(34, 211, 238, 0.15));
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ai-status .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22d3ee;
+  box-shadow: 0 0 8px #22d3ee;
+  animation: status-blink 1.5s ease-in-out infinite;
+}
+
+@keyframes status-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Big metric counter */
+.ai-metric {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(34, 211, 238, 0.05));
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.ai-metric-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a78bfa, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.ai-metric-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Neural Selector — Biológica / Digital
+   ============================================================ */
+
+/* Biológica — tons orgânicos */
+.neural-biological .scanlines-bio {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(167, 139, 250, 0.02) 2px,
+    rgba(167, 139, 250, 0.02) 3px
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.neural-biological::before {
+  content: "";
+  position: absolute;
+  inset: 5%;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(167, 139, 250, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 70%, rgba(236, 72, 153, 0.12) 0%, transparent 50%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+  animation: bio-pulse 6s ease-in-out infinite;
+}
+
+@keyframes bio-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* Digital — tons ciano/violeta, grid */
+.neural-digital .scanlines-digital {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(34, 211, 238, 0.025) 2px,
+      rgba(34, 211, 238, 0.025) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(34, 211, 238, 0.015) 2px,
+      rgba(34, 211, 238, 0.015) 3px
+    );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.neural-digital::before {
+  content: "";
+  position: absolute;
+  inset: 5%;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(34, 211, 238, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(167, 139, 250, 0.12) 0%, transparent 50%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 0;
+  animation: digital-pulse 4s linear infinite;
+}
+
+@keyframes digital-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Quando muda de aba, o núcleo central mantém posição fixa */
+.neural-core {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}

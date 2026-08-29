@@ -1,0 +1,105 @@
+# ============================================================
+# Next Wave — HostGator Plano M (Apache + mod_rewrite)
+# ============================================================
+
+# UTF-8 padrão
+AddDefaultCharset UTF-8
+
+# Servir arquivos pré-comprimidos (.br / .gz) quando existirem
+<IfModule mod_negotiation.c>
+    Options -MultiViews
+</IfModule>
+
+# SPA Routing — qualquer rota desconhecida cai no index.html
+RewriteEngine On
+RewriteBase /
+
+# Servir arquivos pré-comprimidos Brotli (se o servidor não tiver mod_brotli)
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP:Accept-Encoding} br
+    RewriteCond %{REQUEST_FILENAME}.br -f
+    RewriteRule ^(.*)$ $1.br [L]
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}.gz -f
+    RewriteRule ^(.*)$ $1.gz [L]
+</IfModule>
+
+# Fallback SPA
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Desabilitar ETags (evita revalidação desnecessária)
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+
+FileETag None
+
+# Tempo de expiração — assets versionados (imutáveis, 1 ano)
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css                "access plus 1 year"
+    ExpiresByType application/javascript  "access plus 1 year"
+    ExpiresByType image/webp             "access plus 1 year"
+    ExpiresByType image/png              "access plus 1 year"
+    ExpiresByType image/jpeg             "access plus 1 year"
+    ExpiresByType image/svg+xml          "access plus 1 year"
+    ExpiresByType image/x-icon           "access plus 1 year"
+    ExpiresByType font/woff2             "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    ExpiresByType text/html              "access plus 1 hour"
+    ExpiresByType application/json       "access plus 1 hour"
+</IfModule>
+
+# Cache-Control explícito para assets
+<IfModule mod_headers.c>
+    <FilesMatch "\.(js|css|webp|png|jpg|jpeg|svg|ico|woff2)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(html|json)$">
+        Header set Cache-Control "public, max-age=3600, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# Compactação Gzip (caso Brotli não esteja disponível)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE application/font-woff2
+</IfModule>
+
+# MIME types essenciais
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+    AddType image/svg+xml .svg
+    AddType application/javascript .js
+    AddType text/css .css
+    AddType font/woff2 .woff2
+</IfModule>
+
+# ============================================================
+# Headers de segurança
+# ============================================================
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+
+    # CSP — permite Google Fonts e WhatsApp/click-to-chat
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self'; frame-src https://wa.me https://*.whatsapp.com; form-action 'self' mailto: https://wa.me"
+</IfModule>
+
+# Página de erro customizada (fallback SPA)
+ErrorDocument 404 /index.html
