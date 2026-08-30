@@ -42,25 +42,23 @@ jobs:
           cp -f public/sitemap.xml dist/sitemap.xml || true
           ls -la dist
 
-      - name: Setup SSH agent with deploy key
-        uses: webfactory/ssh-agent@v0.9.0
+      - name: Deploy to HostGator via FTP
+        uses: SamKirkland/ftp-action@v2.1.0
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Deploy via rsync over SSH
-        run: |
-          rsync -avz --delete \
-            -e "ssh -p ${SSH_PORT:-22} -o StrictHostKeyChecking=accept-new" \
-            --exclude '.git' \
-            --exclude 'node_modules' \
-            --exclude 'README.md' \
-            ./dist/ \
-            ${SSH_USER}@${SSH_HOST}:${SSH_REMOTE_DIR}/
-        env:
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_PORT: ${{ secrets.SSH_PORT }}
-          SSH_USER: ${{ secrets.SSH_USER }}
-          SSH_REMOTE_DIR: ${{ secrets.SSH_REMOTE_DIR }}
+          host: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: dist
+          remoteDir: ${{ secrets.FTP_REMOTE_DIR }}
+          port: 21
+          protocol: ftp
+          secure: false
+          dryRun: false
+          exclude: |
+            **/.git
+            **/.git/**
+            **/node_modules/**
+            **/README.md
 
       - name: Deployment summary
         if: success()

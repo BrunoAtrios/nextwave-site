@@ -101,65 +101,34 @@ npm run preview    # serve dist/ localmente
 
 Há **duas formas** de subir o site:
 
-### Opção A — Automática (GitHub Actions → SFTP)
+### Opção A — Automática (GitHub Actions → FTP)
 
-Já configurado em `.github/workflows/deploy.yml`. A cada `git push` na `main`,
-o GitHub faz o build e envia para o servidor via **rsync sobre SSH** (SFTP).
-É necessária uma única chave SSH exclusiva para deploy — **nunca expomos a senha
-do cPanel**.
+A cada `git push` na `main`, o GitHub faz o build e envia para o servidor via FTP.
 
-#### Passo 1 — Ativar SSH no cPanel
+#### Setup único (5 minutos)
 
-1. cPanel → **SSH Access** (ou **Terminal**)
-2. Verifique se o acesso SSH está habilitado para sua conta
-3. Anote:
-   - **Host SSH** (geralmente `ssh.nextw.com.br` ou `server.nextw.com.br` — confirme no cPanel)
-   - **Porta** (HostGator Plano M costuma usar `2222` ou `22` — confirme no cPanel)
-   - **Usuário** (o mesmo do cPanel)
+**1. No cPanel, descubra o usuário FTP e a pasta remota:**
 
-#### Passo 2 — Gerar par de chaves SSH no seu Windows
+- cPanel → **FTP Accounts** (ou **Contas FTP**) → anote seu usuário
+- cPanel → **File Manager** → navegue até a pasta do site (geralmente `public_html`)
+- Na **barra de endereço** do File Manager vai aparecer o caminho completo — geralmente é `/home/SEU_USUARIO/public_html`
 
-Abra o **PowerShell** e rode:
-
-```powershell
-ssh-keygen -t ed25519 -C "github-deploy-nextwave" -f $HOME\.ssh\nextwave_deploy
-```
-
-Isso gera dois arquivos:
-- `~/.ssh/nextwave_deploy` → **chave privada** (vai pro GitHub)
-- `~/.ssh/nextwave_deploy.pub` → **chave pública** (vai pro cPanel)
-
-> Não digite passphrase (deixe vazio) — o GitHub Actions não tem como digitá-la.
-
-#### Passo 3 — Adicionar a chave pública no cPanel
-
-1. cPanel → **SSH Access → Manage SSH Keys → Import Key**
-2. Cole o conteúdo de `nextwave_deploy.pub` (exiba com `Get-Content $HOME\.ssh\nextwave_deploy.pub` no PowerShell)
-3. Clique em **Import** e depois em **Manage → Authorize**
-
-#### Passo 4 — Cadastrar secrets no GitHub
+**2. Cadastre 4 secrets no GitHub:**
 
 Acesse: **https://github.com/BrunoAtrios/nextwave-site/settings/secrets/actions**
 
-Crie **5 secrets**:
+Clique em **New repository secret** e crie:
 
-| Nome                | Valor                                          |
-| ------------------- | ---------------------------------------------- |
-| `SSH_HOST`          | `ssh.nextw.com.br` (ou o host do cPanel)       |
-| `SSH_PORT`          | `2222` (ou a porta que o cPanel indicou)       |
-| `SSH_USER`          | seu usuário do cPanel                          |
-| `SSH_REMOTE_DIR`    | `/home/USUARIO/public_html` (ver abaixo)       |
-| `SSH_PRIVATE_KEY`   | conteúdo **completo** de `nextwave_deploy`     |
+| Nome              | Valor                                       |
+| ----------------- | ------------------------------------------- |
+| `FTP_HOST`        | `ftp.nextw.com.br` (host do FTP no cPanel)  |
+| `FTP_USERNAME`    | seu usuário do cPanel                       |
+| `FTP_PASSWORD`    | sua senha do cPanel                         |
+| `FTP_REMOTE_DIR`  | `/home/SEU_USUARIO/public_html`             |
 
-Para o secret `SSH_PRIVATE_KEY`, copie **inclusive** as linhas `-----BEGIN...`
-e `-----END...`.
+> ⚠️ **Dica:** no cPanel, crie uma conta FTP **exclusiva para deploy** (em FTP Accounts → Add FTP Account) com escopo só na pasta `public_html`. Assim a senha não é a do cPanel principal.
 
-Para descobrir o `SSH_REMOTE_DIR`:
-- cPanel → **File Manager** → navegue até a pasta do site
-- Olhe a barra de endereço — geralmente é `/home/SEU_USER/public_html`
-- Se `nextw.com.br` é domínio adicional: `/home/SEU_USER/public_html/nextw.com.br`
-
-#### Passo 5 — Testar o deploy
+**3. Disparar o primeiro deploy:**
 
 ```bash
 git commit --allow-empty -m "chore: trigger deploy"
@@ -167,6 +136,8 @@ git push
 ```
 
 Acompanhe em: **https://github.com/BrunoAtrios/nextwave-site/actions**
+
+Quando aparecer ✅ verde no job **Deploy to HostGator**, o site está no ar em https://www.nextw.com.br
 
 ### Opção B — Manual (upload via cPanel)
 
