@@ -4,7 +4,7 @@
 
 Site institucional da **NextWave** (empresa de automação, IA e infraestrutura). A **NextWave é o centro de tudo** — ela orquestra o **ecossistema ServOS** (plataforma/sistemas). Design dark mode premium estilo Apple/Vercel, otimizado para hospedagem compartilhada **HostGator Plano M**.
 
-**Site no ar:** http://www.nextw.com.br (HTTPS pendente — ativar AutoSSL no cPanel)
+**Site no ar:** https://www.nextw.com.br (HTTP também funciona, redireciona pra HTTPS)
 
 ---
 
@@ -52,14 +52,15 @@ Site institucional da **NextWave** (empresa de automação, IA e infraestrutura)
 - **Document Root:** `/home1/brun6929/public_html/`
 - **IP do servidor:** `69.6.213.154`
 - **DNS Cloudflare:** registros A com proxy **DNS only (cinza)** apontando pro IP
-- **Status HTTP:** ✅ Funcionando
-- **Status HTTPS:** ⏳ Pendente (rodar AutoSSL no cPanel)
+- **Status HTTP:** ✅ Funcionando, redireciona pra HTTPS
+- **Status HTTPS:** ✅ Funcionando (Let's Encrypt, válido até 27/11/2026)
 
 ### Pendências DNS/SSL
 
-1. Ativar **AutoSSL** no cPanel → Security → SSL/TLS Status → Run AutoSSL
-2. Ativar **Force HTTPS Redirect** → cPanel → Domains → toggle
+1. ~~Ativar **AutoSSL** no cPanel~~ ✅ Concluído em 2026-08-30 (certificado Let's Encrypt emitido para `www.nextw.com.br`, válido até 27/11/2026)
+2. ~~Ativar **Force HTTPS Redirect**~~ ✅ Concluído
 3. Configurar subdomínios no Cloudflare (atualmente usam DNS da HostGator direto)
+4. **Renovar certificado AutoSSL** — Let's Encrypt expira em 90 dias, cPanel renova automaticamente cerca de30 dias antes da expiração (verificar)
 
 ---
 
@@ -186,11 +187,12 @@ Acompanhar deploys em: https://github.com/BrunoAtrios/nextwave-site/actions
 
 ## ⚠️ Pendências
 
-1. **Ativar AutoSSL** no cPanel (5 min)
-2. **Trocar senha do FTP** `ftpadmin@nextw.com.br` (segurança)
-3. Configurar **Force HTTPS Redirect**
+1. ~~**Ativar AutoSSL** no cPanel~~ ✅ Concluído
+2. ~~**Configurar Force HTTPS Redirect**~~ ✅ Concluído
+3. **Trocar senha do FTP** `ftpadmin@nextw.com.br` (segurança — senha foi exposta em texto plano durante setup)
 4. **DNS dos subdomínios** (servobras, teste, atagestao) — atualmente funcionam via DNS HostGator direto, podem precisar de atenção se algo mudar
 5. Chaves SSH geradas no Windows (`~/.ssh/nextwave_deploy*`) — deletar do cPanel se não usadas (Auth ainda autorizada)
+6. **Renovação AutoSSL** — Let's Encrypt renova automaticamente a cada ~60 dias, mas vale verificar antes da expiração (27/11/2026)
 
 ---
 
