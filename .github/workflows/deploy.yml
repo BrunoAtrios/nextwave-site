@@ -43,20 +43,19 @@ jobs:
           ls -la dist
 
       - name: Deploy to HostGator via FTP
-        uses: SamKirkland/ftp-action@v2.1.0
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          host: ${{ secrets.FTP_HOST }}
+          server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: dist
-          remoteDir: ${{ secrets.FTP_REMOTE_DIR }}
           port: 21
           protocol: ftp
-          secure: false
-          dryRun: false
+          local-dir: dist/
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          log-level: standard
           exclude: |
-            **/.git
-            **/.git/**
+            **/.git*
+            **/.git*/**
             **/node_modules/**
             **/README.md
 
