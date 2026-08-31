@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
 import {
   Server,
-  Home,
   Factory,
   HardHat,
-  Radio,
-  Shield,
+  Church,
+  Music,
+  CreditCard,
   Cpu,
 } from "lucide-react";
 
@@ -14,44 +14,44 @@ const modules = [
   {
     icon: <Server size={24} />,
     label: "ServOS",
-    desc: "Sistema operacional de serviços",
+    desc: "Gestão integrada multi-tenant",
     color: "from-indigo-400 to-purple-500",
     shadow: "shadow-indigo-500/20",
   },
   {
     icon: <HardHat size={24} />,
-    label: "Serv Obra",
-    desc: "Gestão inteligente de obras",
+    label: "ServObras",
+    desc: "Gestão de obras de engenharia",
     color: "from-amber-400 to-orange-500",
     shadow: "shadow-amber-500/20",
   },
   {
     icon: <Factory size={24} />,
     label: "Next Gestão",
-    desc: "ERP industrial completo",
+    desc: "ERP para chão de fábrica",
     color: "from-blue-400 to-indigo-500",
     shadow: "shadow-blue-500/20",
   },
   {
-    icon: <Home size={24} />,
-    label: "Automação IA",
-    desc: "Casa inteligente com IA",
-    color: "from-purple-400 to-pink-500",
-    shadow: "shadow-purple-500/20",
+    icon: <Church size={24} />,
+    label: "ServOS Church",
+    desc: "Gestão para igrejas",
+    color: "from-emerald-400 to-teal-500",
+    shadow: "shadow-emerald-500/20",
   },
   {
-    icon: <Radio size={24} />,
-    label: "NFC/UHF",
-    desc: "Rastreamento e identificação",
-    color: "from-cyan-400 to-teal-500",
+    icon: <Music size={24} />,
+    label: "Minhas Cifras",
+    desc: "Repertório e ferramentas do músico",
+    color: "from-pink-400 to-rose-500",
+    shadow: "shadow-pink-500/20",
+  },
+  {
+    icon: <CreditCard size={24} />,
+    label: "Smart Card",
+    desc: "Cartão digital com NFC",
+    color: "from-cyan-400 to-sky-500",
     shadow: "shadow-cyan-500/20",
-  },
-  {
-    icon: <Shield size={24} />,
-    label: "Redes & Infra",
-    desc: "Infraestrutura corporativa",
-    color: "from-green-400 to-emerald-500",
-    shadow: "shadow-green-500/20",
   },
 ];
 
@@ -66,7 +66,7 @@ export default function Ecossistema() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <SectionTitle
           title="Ecossistema ServOS"
-          subtitle="A NextWave orquestra todos os módulos do ecossistema ServOS em uma plataforma única"
+          subtitle="A NextWave orquestra todos os produtos do ecossistema ServOS em uma plataforma única"
           gradient
         />
 
@@ -167,10 +167,9 @@ export default function Ecossistema() {
         >
           <p className="text-text-secondary leading-relaxed">
             A <span className="text-accent-primary font-semibold">NextWave</span>{" "}
-            é o centro de tudo. Ela orquestra o ecossistema{" "}
+            é o centro de tudo. Ela mantém o ecossistema{" "}
             <span className="text-accent-cyan font-semibold">ServOS</span> e seus
-            módulos se comunicam em tempo real, gerando dados consolidados,
-            dashboards analíticos e automação inteligente de processos.
+            módulos se complementam em casos reais — da gestão da indústria à equipe de música da igreja, da obra civil à fábrica de cartões NFC.
           </p>
         </motion.div>
       </div>

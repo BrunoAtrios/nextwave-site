@@ -4,39 +4,39 @@ import {
   Server,
   HardHat,
   Factory,
-  Home,
-  Radio,
-  Shield,
-  ArrowRight,
+  Church,
+  Music,
+  CreditCard,
 } from "lucide-react";
 
 const products = [
   {
     icon: <Server size={28} />,
     title: "ServOS",
-    tagline: "Plataforma Central de Gestão",
+    tagline: "Gestão integrada para empresas",
     description:
-      "O cérebro do ecossistema. CRM, ERP, inventário, relatórios em tempo real e integração total com todos os módulos.",
+      "Plataforma multi-tenant com ordens de serviço, financeiro, agenda, WhatsApp integrado, expedição com GPS, controle de veículos, lembretes de pagamento e RBAC granular.",
     features: [
-      "Dashboard analítico",
-      "API RESTful",
-      "Multi-tenant",
-      "Relatórios em tempo real",
+      "Kanban de ordens de serviço",
+      "Fluxo de caixa automático",
+      "WhatsApp via gateway AWAH",
+      "Expedição com validação GPS",
+      "PWA instalável",
     ],
     color: "from-indigo-500 to-purple-600",
     borderColor: "border-indigo-500/20 hover:border-indigo-500/40",
   },
   {
     icon: <HardHat size={28} />,
-    title: "Serv Obra",
-    tagline: "Gestor de Obras Online",
+    title: "ServObras",
+    tagline: "Gestão de obras de engenharia",
     description:
-      "Controle total da sua obra na palma da mão. Estoque de materiais, financeiro, cronograma e equipes em um só lugar.",
+      "Plataforma para engenheiros com checklist de 32 etapas, cronograma em 3 níveis, fluxograma, diário de obra, materiais, financeiro com fechamento mensal, contratos e auditoria.",
     features: [
-      "Controle de estoque",
-      "Financeiro integrado",
-      "Gestão de equipes",
-      "Módulos personalizáveis",
+      "Cronograma Etapa › Subetapa › Tarefa",
+      "Diário de obra com presença",
+      "Múltiplas contas e fechamento mensal",
+      "Perfil supervisor com auditoria",
     ],
     color: "from-amber-500 to-orange-600",
     borderColor: "border-amber-500/20 hover:border-amber-500/40",
@@ -44,62 +44,63 @@ const products = [
   {
     icon: <Factory size={28} />,
     title: "Next Gestão",
-    tagline: "ERP para Processo Fabril",
+    tagline: "ERP para chão de fábrica",
     description:
-      "Gestão empresarial completa voltada para indústria. Produção, estoque, financeiro e personalização de módulos sob medida.",
+      "ERP industrial com clientes, materiais, produtos, facas com RFID, ordens de serviço, RH com ponto eletrônico, veículos, expedição de correios com PWA online-first e notificações in-app.",
     features: [
-      "Controle de produção",
-      "Gestão financeira",
-      "Estoque inteligente",
-      "Personalização total",
+      "Kanban de produção",
+      "RH com ponto eletrônico",
+      "Expedição PWA online-first",
+      "Mascote Scot no login",
+      "HSTS + CSP + CSRF",
     ],
     color: "from-blue-500 to-cyan-600",
     borderColor: "border-blue-500/20 hover:border-blue-500/40",
   },
   {
-    icon: <Home size={28} />,
-    title: "Automação Residencial",
-    tagline: "IA Integrada na sua Casa",
+    icon: <Church size={28} />,
+    title: "ServOS Church",
+    tagline: "Gestão para igrejas",
     description:
-      "Automação inteligente com IA personalizada que aprende sua rotina. Orquestrador completo e assistente pessoal.",
+      "Sistema multi-tenant para igrejas com membros, ministérios, células, agenda, financeiro com comprovantes, avisos, devocionais, notificações internas e busca global.",
     features: [
-      "IA personalizada",
-      "Assistente pessoal",
-      "Rotinas automáticas",
-      "Controle total",
+      "Membros com perfil e histórico",
+      "Agenda com calendário visual",
+      "Importação de membros por CSV",
+      "PWA instalável",
     ],
-    color: "from-purple-500 to-pink-600",
-    borderColor: "border-purple-500/20 hover:border-purple-500/40",
+    color: "from-emerald-500 to-teal-600",
+    borderColor: "border-emerald-500/20 hover:border-emerald-500/40",
   },
   {
-    icon: <Radio size={28} />,
-    title: "NFC & UHF",
-    tagline: "Identificação e Rastreamento",
+    icon: <Music size={28} />,
+    title: "Minhas Cifras",
+    tagline: "Repertório e ferramentas do músico",
     description:
-      "Tecnologias de identificação por proximidade e longo alcance. Controle de acesso, rastreamento de ativos e logística.",
+      "Sistema para equipes de música com repertórios, agendamento automático, 14 ferramentas do músico (afinador, detector de acordes, metrônomo, treino de ouvido, círculo de quintas, compositor assistido), chat walkie-talkie e PWA.",
     features: [
-      "Alcance até 12m (UHF)",
-      "Leitores ACR122U",
-      "Multi-tags",
-      "Integração ServOS",
+      "14 ferramentas do músico",
+      "Detector de acordes com Meyda.js",
+      "Pads ao vivo por tonalidade",
+      "Reprodução sincronizada de stems",
     ],
-    color: "from-cyan-500 to-teal-600",
+    color: "from-pink-500 to-rose-600",
+    borderColor: "border-pink-500/20 hover:border-pink-500/40",
+  },
+  {
+    icon: <CreditCard size={28} />,
+    title: "Smart Card",
+    tagline: "Cartão digital com NFC",
+    description:
+      "Plataforma de cartão digital com geração de cartões NFC em lote, ativação por URL única, preview em formato iPhone, ícones sociais dinâmicos e fluxo de fábrica gráfica integrada.",
+    features: [
+      "Cartões NFC em lote",
+      "Ativação por URL curta",
+      "Fluxo para fábrica gráfica",
+      "Versionamento via version.json",
+    ],
+    color: "from-cyan-500 to-sky-600",
     borderColor: "border-cyan-500/20 hover:border-cyan-500/40",
-  },
-  {
-    icon: <Shield size={28} />,
-    title: "Redes & Infraestrutura",
-    tagline: "Segurança e Performance",
-    description:
-      "Redes corporativas, firewalls, VPN, servidores e monitoramento. Infraestrutura robusta para suportar seu crescimento.",
-    features: [
-      "Redes corporativas",
-      "Firewall & VPN",
-      "Monitoramento 24/7",
-      "Cloud & backup",
-    ],
-    color: "from-green-500 to-emerald-600",
-    borderColor: "border-green-500/20 hover:border-green-500/40",
   },
 ];
 
@@ -114,7 +115,7 @@ export default function Produtos() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <SectionTitle
           title="Nossas Soluções"
-          subtitle="Cada produto foi pensado para resolver problemas reais com tecnologia de ponta"
+          subtitle="Cada produto foi construído a partir de uso real — em obra, fábrica, igreja, banda e gráfica"
           gradient
         />
 
@@ -127,7 +128,7 @@ export default function Produtos() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -6 }}
-              className={`relative p-6 rounded-2xl glass card-shine border ${product.borderColor} transition-all duration-300 group cursor-pointer`}
+              className={`relative p-6 rounded-2xl glass card-shine border ${product.borderColor} transition-all duration-300 group`}
             >
               <div
                 className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.color} flex items-center justify-center text-white mb-5 shadow-lg group-hover:scale-110 transition-transform`}
@@ -145,7 +146,7 @@ export default function Produtos() {
                 {product.description}
               </p>
 
-              <ul className="space-y-2 mb-5">
+              <ul className="space-y-2">
                 {product.features.map((feature, j) => (
                   <li
                     key={j}
@@ -156,14 +157,6 @@ export default function Produtos() {
                   </li>
                 ))}
               </ul>
-
-              <div className="flex items-center gap-1 text-sm text-accent-primary group-hover:text-accent-cyan transition-colors">
-                Saiba mais
-                <ArrowRight
-                  size={14}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </div>
             </motion.div>
           ))}
         </div>

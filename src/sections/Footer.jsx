@@ -5,10 +5,11 @@ import { siteConfig, whatsappLink } from "../config";
 const footerLinks = {
   produtos: [
     { label: "ServOS", href: "#ecossistema" },
-    { label: "Serv Obra", href: "#produtos" },
-    { label: "Next Gestão", href: "#produtos" },
-    { label: "Automação IA", href: "#automacao" },
-    { label: "NFC & UHF", href: "#produtos" },
+    { label: "ServObras", href: "#ecossistema" },
+    { label: "Next Gestão", href: "#ecossistema" },
+    { label: "ServOS Church", href: "#ecossistema" },
+    { label: "Minhas Cifras", href: "#ecossistema" },
+    { label: "Smart Card", href: "#ecossistema" },
   ],
   empresa: [
     { label: "Tecnologias", href: "#tech" },

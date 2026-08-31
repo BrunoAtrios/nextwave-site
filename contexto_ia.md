@@ -79,15 +79,15 @@ Essa hierarquia está explícita em:
 
 ## Estrutura do Site (Seções)
 
-1. **Hero** - Particle background animado, logo NextWave, badge "NextWave · Ecossistema ServOS", CTAs
-2. **Números** - Contadores animados (150+ projetos, 80+ clientes, 5+ anos, 99% uptime)
-3. **Ecossistema ServOS** - Diagrama com **NextWave no centro** e 6 módulos ServOS orbitando (cada módulo exibe selo "via NextWave")
-4. **Produtos** - Grid 6 cards (ServOS, Serv Obra, Next Gestão, Automação IA, NFC/UHF, Redes)
-5. **Automação com IA** - Seção destaque com **cérebro neural animado** e seletor Biológica/Digital
-6. **Tech Stack** - Grid 12 tecnologias
-7. **Depoimentos** - 4 testimonials realistas
-8. **Contato** - Formulário → WhatsApp + 3 cards (WhatsApp, Email, Localização)
-9. **Footer** - Links organizados por categoria + redes sociais + assinatura Bruno Ferreira
+1. **Hero** - Particle background animado, logo NextWave, badge "NextWave · Ecossistema ServOS", CTAs. Subtítulo agora menciona explicitamente os 6 produtos (ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras, Smart Card).
+2. **Números** - Contadores animados de portfólio (6 produtos no ecossistema ServOS, 13 projetos em portfólio, 5 áreas de atuação, 100% código próprio).
+3. **Ecossistema ServOS** - Diagrama com **NextWave no centro** e 6 cards (ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras, Smart Card), cada um com selo "via NextWave".
+4. **Produtos** - Grid 6 cards com os 6 produtos reais, cada um com descrição e 4-5 capacidades extraídas dos contextos.
+5. **Automação com IA** - Seção destaque com **cérebro neural animado** e seletor Biológica/Digital. Copy reescrita para refletir capacidades reais já em produção (orquestração de modelos, voz neural pt-BR, memória persistente, detecção de acordes, hardening de segurança).
+6. **Tech Stack** - Grid 12 tecnologias com o stack real usado nos 13 projetos (PHP, Laravel, Python, Node.js, React, MySQL, SQLite, Docker, Cloudflare, GitHub Actions, Ollama, Web Audio API).
+7. **Onde os produtos da NextWave já rodam** - Quatro cases reais extraídos dos contextos (obra civil, chão de fábrica, igreja, equipe de música). Substitui depoimentos fictícios.
+8. **Contato** - Formulário → WhatsApp + 3 cards (WhatsApp, Email, Localização).
+9. **Footer** - Links para os 6 produtos, links da empresa, legal, redes sociais e assinatura Bruno Ferreira.
 
 ---
 
@@ -104,16 +104,19 @@ Essa hierarquia está explícita em:
 
 ---
 
-## Produtos da Empresa
+## Produtos da Empresa (mencionados no site)
 
 | Produto                | Descrição                                                      |
 | ---------------------- | -------------------------------------------------------------- |
-| ServOS                 | Plataforma central de gestão (cérebro do ecossistema)          |
-| Serv Obra              | Gestor de obras online (estoque, financeiro, equipes, módulos) |
-| Next Gestão            | ERP para processo fabril (produção, estoque, financeiro)       |
-| Automação Residencial  | IA personalizada embarcada, orquestrador, assistente pessoal   |
-| NFC & UHF              | Identificação por proximidade e longo alcance                  |
-| Redes & Infraestrutura | Redes corporativas, firewall, VPN, monitoramento               |
+| ServOS                 | Gestão integrada multi-tenant (Kanban de OS, financeiro, WhatsApp via gateway AWAH, expedição com GPS, RBAC granular) |
+| ServObras              | Gestão de obras de engenharia (checklist 32 etapas, cronograma 3 níveis, diário, financeiro com fechamento mensal, perfil supervisor + auditoria) |
+| Next Gestão            | ERP para chão de fábrica (Kanban, RFID de facas, RH com ponto, expedição PWA online-first, mascote Scot no login, HSTS+CSP+CSRF) |
+| ServOS Church          | Gestão para igrejas (membros, ministérios, células, agenda com calendário, financeiro, avisos, devocionais, busca global, importação CSV, PWA) |
+| Minhas Cifras          | Repertório e 14 ferramentas do músico (afinador, detector de acordes Meyda, metrônomo, treino de ouvido, círculo de quintas, conversor entre instrumentos, compositor assistido, rastreador de pitch, loop station, cronômetro de culto, auto-scroll, capo, estatísticas, busca), chat walkie-talkie, PWA, pads ao vivo, stems |
+| Smart Card             | Cartão digital + NFC (geração em lote UUID, ativação por URL única, mockup iPhone, ícones sociais dinâmicos, fluxo para fábrica gráfica, versionamento via version.json) |
+
+> Itens removidos do site por falta de evidência nos contextos:
+> "Automação Residencial", "NFC & UHF", "Redes & Infraestrutura", contadores genéricos ("150+ projetos", "80+ clientes", "5+ anos", "99% uptime") e depoimentos atribuídos a clientes fictícios.
 
 ---
 
@@ -196,4 +199,4 @@ Acompanhar deploys em: https://github.com/BrunoAtrios/nextwave-site/actions
 
 ---
 
-_Última atualização: 2026-08-30_
+_Última atualização: 2026-08-30 (refinamento com base na auditoria dos 13 contexto_ia.md do ecossistema 00_SISTEMA_BRUNO: produtos substituídos por ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras e Smart Card; depoimentos fictícios removidos; métricas sem evidência substituídas por contagens reais de portfólio; copy de IA ajustada para refletir capacidades já em produção)._

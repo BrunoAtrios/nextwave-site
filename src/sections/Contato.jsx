@@ -42,7 +42,7 @@ export default function Contato() {
             Vamos <span className="gradient-text">conversar?</span>
           </h2>
           <p className="text-text-secondary text-base md:text-lg max-w-xl mx-auto">
-            Conte seu desafio. Nossa equipe em {siteConfig.contact.city}-{siteConfig.contact.state} está pronta para desenhar a solução ideal para o seu negócio.
+            Conte seu desafio. Da gestão industrial ao repertório de banda, da obra civil ao cartão NFC — {siteConfig.contact.city}-{siteConfig.contact.state}.
           </p>
         </motion.div>
 

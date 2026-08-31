@@ -1,35 +1,35 @@
 import { motion } from "framer-motion";
 import SectionTitle from "../components/SectionTitle";
-import { Quote, Star } from "lucide-react";
+import { Building2, Church, Music, Factory } from "lucide-react";
 
-const testimonials = [
+const cases = [
   {
-    name: "Ricardo Mendes",
-    role: "Diretor de Operações",
-    company: "Construtora Horizonte",
-    text: "A gente perdia um tempo absurdo controlando material de obra no papel. Depois que implantou o Serv Obra, a equipe toda consegue ver o estoque em tempo real. Mudou nosso dia a dia completamente.",
-    product: "Serv Obra",
+    icon: <Building2 size={20} />,
+    context: "Obra civil",
+    title: "Engenheiro acompanha uma obra por dia",
+    text: "No ServObras, o engenheiro abre o checklist de 32 etapas, marca o diário do dia com presença de terceirizados, ajusta o cronograma em 3 níveis e fecha o caixa da semana — tudo sem trocar de tela.",
+    product: "ServObras",
   },
   {
-    name: "Patrícia Alves",
-    role: "Gerente Industrial",
-    company: "MetalTech Indústria",
-    text: "O Next Gestão organizou nossa produção de um jeito que a gente nem imaginava. Hoje sei exatamente o que tá acontecendo no chão de fábrica sem sair da minha sala.",
+    icon: <Factory size={20} />,
+    context: "Chão de fábrica",
+    title: "ERP que entende o ritmo da produção",
+    text: "No Next Gestão, a equipe move ordens de serviço pelo Kanban, consulta o estoque de facas via RFID, registra o ponto dos funcionários pelo totem e dispara notificações automáticas quando o material entra em estoque baixo.",
     product: "Next Gestão",
   },
   {
-    name: "Fernando Costa",
-    role: "Proprietário",
-    company: "Residência Inteligente",
-    text: "Pedi uma automação que fosse simples de usar. A IA entende minha rotina e já deixa tudo pronto quando chego em casa. Minha família toda usa sem dificuldade.",
-    product: "Automação IA",
+    icon: <Church size={20} />,
+    context: "Igreja",
+    title: "Membros, ministérios e agenda em um só lugar",
+    text: "No ServOS Church, a secretaria importa uma lista nova de membros por CSV, agenda os eventos da semana com flyers, registra os avisos com imagem e responde dízimos com comprovante no financeiro.",
+    product: "ServOS Church",
   },
   {
-    name: "Marcos Oliveira",
-    role: "Coordenador de Logística",
-    company: "TransLog Express",
-    text: "Com o sistema UHF, a gente rastreia toda a frota sem precisar parar o veículo. Economizou horas por semana e reduziu erro humano a quase zero.",
-    product: "NFC & UHF",
+    icon: <Music size={20} />,
+    context: "Equipe de música",
+    title: "Repertório e 14 ferramentas do músico",
+    text: "No Minhas Cifras, o líder da banda monta a agenda do próximo culto pelo agendamento automático, transpõe a cifra na hora, afina o violão com o afinador por autocorrelação e roda um pad ao vivo no tom certo.",
+    product: "Minhas Cifras",
   },
 ];
 
@@ -40,13 +40,13 @@ export default function Depoimentos() {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <SectionTitle
-          title="O que dizem nossos clientes"
-          subtitle="Resultados reais de quem confia na Next"
+          title="Onde os produtos da NextWave já rodam"
+          subtitle="Cenários reais extraídos dos projetos em produção"
           gradient
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((t, i) => (
+          {cases.map((c, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
@@ -55,36 +55,26 @@ export default function Depoimentos() {
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className="relative p-6 md:p-8 rounded-2xl glass border border-border hover:border-accent-primary/20 transition-all duration-300 group"
             >
-              <Quote
-                size={32}
-                className="text-accent-primary/20 absolute top-6 right-6"
-              />
-
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(5)].map((_, j) => (
-                  <Star
-                    key={j}
-                    size={14}
-                    className="text-amber-400 fill-amber-400"
-                  />
-                ))}
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-accent-primary/10 text-accent-primary flex items-center justify-center">
+                  {c.icon}
+                </div>
+                <span className="text-xs uppercase tracking-wider text-accent-cyan font-semibold">
+                  {c.context}
+                </span>
               </div>
 
-              <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-6 italic">
-                &ldquo;{t.text}&rdquo;
+              <h3 className="text-lg md:text-xl font-bold text-text-primary mb-3 leading-snug">
+                {c.title}
+              </h3>
+
+              <p className="text-text-secondary text-sm md:text-base leading-relaxed mb-6">
+                {c.text}
               </p>
 
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-text-primary font-semibold text-sm">
-                    {t.name}
-                  </p>
-                  <p className="text-text-muted text-xs">
-                    {t.role} &mdash; {t.company}
-                  </p>
-                </div>
+              <div className="flex items-center justify-end">
                 <span className="text-xs px-2.5 py-1 rounded-full bg-accent-primary/10 text-accent-primary font-medium">
-                  {t.product}
+                  {c.product}
                 </span>
               </div>
             </motion.div>

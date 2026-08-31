@@ -170,7 +170,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-text-secondary text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
           >
-            A <span className="text-text-primary font-semibold">NextWave</span> é o centro de tudo — orquestra o ecossistema <span className="text-accent-cyan font-semibold">ServOS</span>, conectando automação com IA, gestão empresarial, obras e infraestrutura em uma plataforma única.
+            A <span className="text-text-primary font-semibold">NextWave</span> é o centro de tudo — orquestra o ecossistema <span className="text-accent-cyan font-semibold">ServOS</span>, conectando o <span className="text-text-primary font-medium">ServOS</span>, o <span className="text-text-primary font-medium">ServObras</span>, o <span className="text-text-primary font-medium">Next Gestão</span>, o <span className="text-text-primary font-medium">ServOS Church</span>, o <span className="text-text-primary font-medium">Minhas Cifras</span> e o <span className="text-text-primary font-medium">Smart Card</span> em uma plataforma única.
           </motion.p>
 
           <motion.div

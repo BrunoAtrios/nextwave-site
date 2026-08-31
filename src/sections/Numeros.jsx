@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Briefcase, Users, Clock, Zap } from "lucide-react";
+import { Briefcase, Users, Layers, Sparkles } from "lucide-react";
 
 function AnimatedCounter({ end, suffix = "", duration = 2000 }) {
   const [count, setCount] = useState(0);
@@ -36,27 +36,27 @@ function AnimatedCounter({ end, suffix = "", duration = 2000 }) {
 const stats = [
   {
     icon: <Briefcase size={24} />,
-    value: 150,
-    suffix: "+",
-    label: "Projetos Entregues",
+    value: 6,
+    suffix: "",
+    label: "Produtos no ecossistema ServOS",
+  },
+  {
+    icon: <Layers size={24} />,
+    value: 13,
+    suffix: "",
+    label: "Projetos em portfólio",
   },
   {
     icon: <Users size={24} />,
-    value: 80,
-    suffix: "+",
-    label: "Clientes Ativos",
-  },
-  {
-    icon: <Clock size={24} />,
     value: 5,
-    suffix: "+",
-    label: "Anos de Mercado",
+    suffix: "",
+    label: "Áreas de atuação",
   },
   {
-    icon: <Zap size={24} />,
-    value: 99,
+    icon: <Sparkles size={24} />,
+    value: 100,
     suffix: "%",
-    label: "Uptime Garantido",
+    label: "Código próprio da NextWave",
   },
 ];
 

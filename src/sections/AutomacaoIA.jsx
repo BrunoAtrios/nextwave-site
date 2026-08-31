@@ -17,33 +17,33 @@ import NeuralSelector from "../components/NeuralSelector";
 const features = [
   {
     icon: <Brain size={20} />,
-    title: "IA Personalizada",
-    desc: "Cérebro treinado para a sua rotina, não um genérico de prateleira.",
+    title: "Orquestração de modelos",
+    desc: "Roteamento por intenção com fallback em cascata entre Ollama local, Ollama via túnel e DeepSeek cloud.",
   },
   {
     icon: <Mic size={20} />,
-    title: "Comando por Voz",
-    desc: "Conversa natural em português. Sem palavras mágicas ou sintaxes estranhas.",
+    title: "Voz neural pt-BR",
+    desc: "Síntese de voz com edge-tts (Francisca, Antonio, Thalita) e reconhecimento de voz com push-to-talk real, barge-in e supressão de eco.",
   },
   {
     icon: <Lightbulb size={20} />,
-    title: "Previsão Comportamental",
-    desc: "Antecipa ações com base em padrões: clima, agenda, presença, horário.",
+    title: "Memória persistente",
+    desc: "Fatos permanentes, memória por sessão, fila de sugestões revisáveis manualmente e memória por usuário aprovada via palavra-chave.",
   },
   {
     icon: <Thermometer size={20} />,
-    title: "Clima Inteligente",
-    desc: "Temperatura, luz e ventilação se ajustam antes de você pedir.",
+    title: "Painel holográfico",
+    desc: "Interface com reator animado, monitor de áudio em tempo real e telemetria de latência, modelo e tokens.",
   },
   {
     icon: <Eye size={20} />,
-    title: "Visão Computacional",
-    desc: "Câmeras locais interpretam cena — reconhecem pessoas, gestos e eventos.",
+    title: "Detecção de acordes",
+    desc: "Web Audio API com FFT, chromagram, template matching e 15 tipos de acorde para análise musical em tempo real.",
   },
   {
     icon: <Lock size={20} />,
-    title: "Segurança Preditiva",
-    desc: "Detecta anomalias e reage antes que se tornem incidentes.",
+    title: "Hardening de segurança",
+    desc: "HSTS, CSP, CSRF, rate limit, upload validado com finfo/getimagesize e tokens Sanctum revogados em deploy.",
   },
 ];
 
@@ -69,7 +69,7 @@ export default function AutomacaoIA() {
           <span className="ai-status">
             <span className="dot" />
             <Sparkles size={14} className="text-purple-400" />
-            IA Embarcada · Processamento Local
+            IA Aplicada · Em Produção
           </span>
         </motion.div>
 
@@ -147,18 +147,14 @@ export default function AutomacaoIA() {
             className="order-1 lg:order-2"
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-text-primary mb-6 leading-[1.05] tracking-tight">
-              Não é só{" "}
-              <span className="gradient-text">ligar e desligar</span>
+              IA aplicada em{" "}
+              <span className="gradient-text">produtos</span>
               <br />
-              a luz. É um{" "}
-              <span className="gradient-text-warm">cérebro</span>{" "}
-              pensando por você.
+              que <span className="gradient-text-warm">já rodam</span>.
             </h2>
 
             <p className="text-text-secondary text-base md:text-lg leading-relaxed mb-8">
-              A automação da <span className="text-text-primary font-semibold">NextWave</span> roda uma IA
-              personalizada direto no seu ambiente — <span className="text-accent-cyan font-semibold">sem
-              nuvem, sem latência, sem espionagem</span>. Ela aprende, prevê e age antes mesmo de você pedir.
+              A <span className="text-text-primary font-semibold">NextWave</span> integra modelos de linguagem, voz neural pt-BR, visão computacional e memória persistente em produtos que já estão em produção — <span className="text-accent-cyan font-semibold">do LOGAN no Raspberry Pi ao Minhas Cifras na web</span>.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
@@ -200,13 +196,10 @@ export default function AutomacaoIA() {
                 </div>
                 <div>
                   <p className="text-text-primary text-sm md:text-base font-medium italic leading-relaxed mb-2">
-                    "A IA não está em nenhum servidor no exterior. Ela roda{" "}
-                    <span className="text-accent-cyan font-semibold">aqui</span>, ao
-                    lado dos seus dispositivos. Privacidade total e resposta em
-                    milissegundos."
+                    "A mesma base de IA que orquestra o LOGAN já é usada no detector de acordes do Minhas Cifras, no mascote Scot do Next Gestão e no Jarvis local."
                   </p>
                   <p className="text-text-muted text-xs">
-                    — Filosofia NextWave · IA Embarcada
+                    — Filosofia NextWave · IA aplicada
                   </p>
                 </div>
               </div>

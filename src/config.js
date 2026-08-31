@@ -4,7 +4,7 @@ export const siteConfig = {
     short: "NextWave",
     tagline: "Engenharia e Automação Além do Óbvio",
     description:
-      "NextWave é o centro que orquestra o ecossistema ServOS. Automação residencial com IA, gestão empresarial, obras e infraestrutura inteligente.",
+      "NextWave é o centro que orquestra o ecossistema ServOS, conectando ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras e Smart Card em uma plataforma única.",
     url: "https://www.nextw.com.br",
     logo: "/3.webp",
   },
@@ -25,7 +25,7 @@ export const siteConfig = {
   seo: {
     author: "Next Wave Engenharia e Automação",
     keywords:
-      "automação, IA, gestão empresarial, obras, ERP, infraestrutura, NFC, UHF, ESP32, automação residencial, inteligência artificial, Americana, São Paulo, ServOS",
+      "NextWave, ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras, Smart Card, gestão empresarial, ERP, obras, igrejas, música, NFC, IA, Americana, São Paulo",
     ogImage: "/3.webp",
     locale: "pt_BR",
   },

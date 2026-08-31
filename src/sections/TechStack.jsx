@@ -13,14 +13,24 @@ import {
 
 const technologies = [
   {
+    name: "PHP",
+    icon: <Code2 size={20} />,
+    color: "from-indigo-400 to-purple-600",
+  },
+  {
+    name: "Laravel",
+    icon: <Code2 size={20} />,
+    color: "from-red-400 to-rose-600",
+  },
+  {
     name: "Python",
     icon: <Terminal size={20} />,
     color: "from-blue-400 to-yellow-500",
   },
   {
-    name: "PHP",
-    icon: <Code2 size={20} />,
-    color: "from-indigo-400 to-purple-600",
+    name: "Node.js",
+    icon: <Boxes size={20} />,
+    color: "from-green-500 to-lime-500",
   },
   {
     name: "React",
@@ -28,19 +38,14 @@ const technologies = [
     color: "from-cyan-400 to-cyan-600",
   },
   {
-    name: "JavaScript",
-    icon: <Globe size={20} />,
-    color: "from-yellow-400 to-orange-500",
-  },
-  {
-    name: "PostgreSQL",
+    name: "MySQL",
     icon: <Database size={20} />,
     color: "from-blue-500 to-indigo-600",
   },
   {
-    name: "Linux",
-    icon: <Terminal size={20} />,
-    color: "from-gray-400 to-gray-600",
+    name: "SQLite",
+    icon: <Database size={20} />,
+    color: "from-slate-400 to-slate-600",
   },
   {
     name: "Docker",
@@ -48,25 +53,24 @@ const technologies = [
     color: "from-blue-400 to-cyan-500",
   },
   {
-    name: "ESP32",
-    icon: <Cpu size={20} />,
-    color: "from-green-400 to-emerald-500",
+    name: "Cloudflare",
+    icon: <Cloud size={20} />,
+    color: "from-orange-400 to-amber-500",
   },
   {
-    name: "Node.js",
-    icon: <Boxes size={20} />,
-    color: "from-green-500 to-lime-500",
-  },
-  { name: "IoT", icon: <Cog size={20} />, color: "from-orange-400 to-red-500" },
-  {
-    name: "REST APIs",
+    name: "GitHub Actions",
     icon: <Globe size={20} />,
-    color: "from-violet-400 to-purple-500",
+    color: "from-gray-400 to-gray-600",
   },
   {
-    name: "IA/ML",
+    name: "Ollama",
     icon: <Cpu size={20} />,
-    color: "from-pink-400 to-rose-500",
+    color: "from-emerald-400 to-green-500",
+  },
+  {
+    name: "Web Audio API",
+    icon: <Cog size={20} />,
+    color: "from-violet-400 to-purple-500",
   },
 ];
 
@@ -74,7 +78,7 @@ export default function TechStack() {
   return (
     <section
       id="tech"
-      className="py-24 md:py-32 px-6 bg-bg-secondary relative overflow-hidden"
+      className="py-24 md:text-5xl md:py-32 px-6 bg-bg-secondary relative overflow-hidden"
     >
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
@@ -87,7 +91,7 @@ export default function TechStack() {
       >
         <SectionTitle
           title="Tecnologias"
-          subtitle="Domínio completo das ferramentas que impulsionam a indústria"
+          subtitle="Stack real, usada em produção nos produtos da NextWave"
           gradient
         />
 
@@ -124,8 +128,7 @@ export default function TechStack() {
           className="mt-12 text-center"
         >
           <p className="text-text-muted text-sm">
-            Hardware personalizado &bull; Sistemas Embarcados &bull; Edge
-            Computing &bull; Inteligência Artificial
+            Edge computing &bull; PWA instalável &bull; Cloudflare Tunnel &bull; Raspberry Pi &bull; GitHub Actions + FTP/FTPS
           </p>
         </motion.div>
       </motion.div>
