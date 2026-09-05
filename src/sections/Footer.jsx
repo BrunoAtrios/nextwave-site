@@ -29,33 +29,33 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="py-16 px-6 border-t border-border bg-bg-primary">
+    <footer className="py-14 px-5 sm:px-6 border-t border-border bg-bg-primary">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14"
         >
           <div className="col-span-2 md:col-span-1">
             <a href="#" className="flex items-center gap-3 mb-4">
-              <img src="./3.webp" alt="Next" className="h-10 w-auto" />
+              <img src="/nextw-logo.png" alt="Next Sistemas" width="145" height="42" className="h-9 w-auto object-contain" />
             </a>
             <p className="text-text-muted text-sm leading-relaxed">
-              Engenharia e Automação Além do Óbvio. Transformando negócios com
-              tecnologia inteligente.
+              Soluções inteligentes. Resultados reais. Tecnologia que impulsiona
+              operações e coloca o seu negócio no controle.
             </p>
           </div>
 
           <div>
-            <h4 className="text-text-primary font-semibold mb-4">Produtos</h4>
+            <h4 className="text-text-primary text-xs uppercase tracking-[0.14em] font-bold mb-4">Produtos</h4>
             <ul className="space-y-2.5">
               {footerLinks.produtos.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-text-muted hover:text-accent-primary transition-colors text-sm"
+                    className="text-text-muted hover:text-accent-glow transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -65,13 +65,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-text-primary font-semibold mb-4">Empresa</h4>
+            <h4 className="text-text-primary text-xs uppercase tracking-[0.14em] font-bold mb-4">Empresa</h4>
             <ul className="space-y-2.5">
               {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-text-muted hover:text-accent-primary transition-colors text-sm"
+                    className="text-text-muted hover:text-accent-glow transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -81,13 +81,13 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-text-primary font-semibold mb-4">Legal</h4>
+            <h4 className="text-text-primary text-xs uppercase tracking-[0.14em] font-bold mb-4">Legal</h4>
             <ul className="space-y-2.5">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-text-muted hover:text-accent-primary transition-colors text-sm"
+                    className="text-text-muted hover:text-accent-glow transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -99,14 +99,14 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col items-center gap-2 text-center">
           <p className="text-text-muted text-sm">
-            &copy; 2026 Next Engenharia e Automação. Todos os direitos
+            &copy; 2026 Next Sistemas. Todos os direitos
             reservados.
           </p>
         </div>
 
         <div className="mt-8 pt-6 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <span className="text-text-muted text-sm text-center sm:text-left">
-            &copy; {new Date().getFullYear()} {siteConfig.brand.name} Engenharia e Automação.
+            &copy; {new Date().getFullYear()} {siteConfig.brand.name}.
             Todos os direitos reservados.
           </span>
           <div className="flex items-center gap-2">
@@ -117,7 +117,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-text-muted hover:text-accent-cyan hover:border-accent-cyan/40 transition-colors"
+                className="w-9 h-9 border border-border flex items-center justify-center text-text-muted hover:text-accent-glow hover:border-accent-glow/50 transition-colors"
               >
                 <Icon size={16} />
               </a>
@@ -134,7 +134,7 @@ export default function Footer() {
             href={whatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-accent-primary to-accent-cyan text-white text-xs font-semibold rounded-full hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-accent-primary text-white text-[10px] uppercase tracking-[0.1em] font-bold rounded-sm hover:bg-accent-glow transition-colors"
           >
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
               <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z" />

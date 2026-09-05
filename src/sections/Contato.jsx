@@ -15,7 +15,7 @@ export default function Contato() {
     e.preventDefault();
     if (status === "sending") return;
     setStatus("sending");
-    const msg = `Olá! Meu nome é ${formData.nome || "visitante"}.${formData.mensagem ? `\n\n${formData.mensagem}` : "\n\nGostaria de saber mais sobre as soluções da Next Wave."}`;
+    const msg = `Olá! Meu nome é ${formData.nome || "visitante"}.${formData.mensagem ? `\n\n${formData.mensagem}` : "\n\nGostaria de saber mais sobre as soluções da Next Sistemas."}`;
     window.open(whatsappLink(msg), "_blank", "noopener,noreferrer");
     setTimeout(() => {
       setStatus("sent");
@@ -26,7 +26,7 @@ export default function Contato() {
   return (
     <section
       id="contato"
-      className="py-24 md:py-32 px-6 bg-bg-secondary relative overflow-hidden"
+      className="py-24 md:py-32 px-5 sm:px-6 bg-bg-secondary relative overflow-hidden"
     >
       <div className="absolute inset-0 mesh-gradient" />
 
@@ -38,11 +38,11 @@ export default function Contato() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.055em] text-text-primary mb-5">
             Vamos <span className="gradient-text">conversar?</span>
           </h2>
           <p className="text-text-secondary text-base md:text-lg max-w-xl mx-auto">
-            Conte seu desafio. Da gestão industrial ao repertório de banda, da obra civil ao cartão NFC — {siteConfig.contact.city}-{siteConfig.contact.state}.
+            Conte seu desafio. Vamos desenhar uma solução que gere resultado, do primeiro processo à operação completa, em {siteConfig.contact.city}-{siteConfig.contact.state}.
           </p>
         </motion.div>
 
@@ -55,10 +55,10 @@ export default function Contato() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-3"
           >
-            <form onSubmit={handleWhatsApp} className="p-6 md:p-8 rounded-2xl glass border border-border">
+            <form onSubmit={handleWhatsApp} className="p-6 md:p-8 rounded-sm glass border border-border">
               <div className="space-y-5">
                 <div>
-                  <label htmlFor="nome" className="block text-text-secondary text-sm mb-2">
+                  <label htmlFor="nome" className="block text-text-secondary text-[11px] uppercase tracking-[0.12em] font-bold mb-2">
                     Nome
                   </label>
                   <input
@@ -72,11 +72,11 @@ export default function Contato() {
                       setFormData({ ...formData, nome: e.target.value })
                     }
                     placeholder="Seu nome"
-                    className="w-full px-4 py-3 rounded-lg bg-bg-primary border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/30 transition-colors"
+                    className="w-full px-4 py-3 rounded-sm bg-bg-primary border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/30 transition-colors"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-text-secondary text-sm mb-2">
+                  <label htmlFor="email" className="block text-text-secondary text-[11px] uppercase tracking-[0.12em] font-bold mb-2">
                     E-mail
                   </label>
                   <input
@@ -89,11 +89,11 @@ export default function Contato() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     placeholder="seu@email.com"
-                    className="w-full px-4 py-3 rounded-lg bg-bg-primary border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/30 transition-colors"
+                    className="w-full px-4 py-3 rounded-sm bg-bg-primary border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/30 transition-colors"
                   />
                 </div>
                 <div>
-                  <label htmlFor="mensagem" className="block text-text-secondary text-sm mb-2">
+                  <label htmlFor="mensagem" className="block text-text-secondary text-[11px] uppercase tracking-[0.12em] font-bold mb-2">
                     Mensagem
                   </label>
                   <textarea
@@ -105,14 +105,14 @@ export default function Contato() {
                     }
                     placeholder="Descreva seu projeto ou necessidade..."
                     rows={4}
-                    className="w-full px-4 py-3 rounded-lg bg-bg-primary border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/30 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-sm bg-bg-primary border border-border text-text-primary placeholder-text-muted text-sm focus:outline-none focus:border-accent-primary focus:ring-2 focus:ring-accent-primary/30 transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#25d366] text-white font-semibold rounded-lg hover:bg-[#20bd5a] transition-all shadow-lg shadow-[#25d366]/20 hover:shadow-[#25d366]/40 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#25d366] text-white text-xs uppercase tracking-[0.12em] font-bold rounded-sm hover:bg-[#20bd5a] transition-all shadow-lg shadow-[#25d366]/20 hover:shadow-[#25d366]/40 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status === "sending" && <Loader2 size={20} className="animate-spin" />}
                   {status === "sent" && <CheckCircle2 size={20} />}
@@ -142,12 +142,12 @@ export default function Contato() {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-6 rounded-2xl glass border border-border flex-1 hover:border-[#25d366]/40 transition-colors"
+              className="block p-6 rounded-sm glass border border-border flex-1 hover:border-[#25d366]/40 transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#25d366]/10 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-[#25d366]/10 flex items-center justify-center mb-4">
                 <MessageCircle size={24} className="text-[#25d366]" />
               </div>
-              <h4 className="text-text-primary font-semibold mb-2">WhatsApp</h4>
+              <h4 className="text-text-primary text-sm uppercase tracking-[0.1em] font-bold mb-2">WhatsApp</h4>
               <p className="text-text-muted text-sm mb-3">
                 Resposta rápida em horário comercial
               </p>
@@ -158,12 +158,12 @@ export default function Contato() {
 
             <a
               href={`mailto:${siteConfig.contact.email}`}
-              className="block p-6 rounded-2xl glass border border-border flex-1 hover:border-accent-primary/40 transition-colors"
+              className="block p-6 rounded-sm glass border border-border flex-1 hover:border-accent-primary/60 transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl bg-accent-primary/10 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-accent-primary/10 flex items-center justify-center mb-4">
                 <Mail size={24} className="text-accent-primary" />
               </div>
-              <h4 className="text-text-primary font-semibold mb-2">E-mail</h4>
+              <h4 className="text-text-primary text-sm uppercase tracking-[0.1em] font-bold mb-2">E-mail</h4>
               <p className="text-text-muted text-sm mb-3">
                 Para propostas e documentos
               </p>
@@ -172,11 +172,11 @@ export default function Contato() {
               </span>
             </a>
 
-            <div className="p-6 rounded-2xl glass border border-border flex-1">
-              <div className="w-12 h-12 rounded-xl bg-accent-cyan/10 flex items-center justify-center mb-4">
+            <div className="p-6 rounded-sm glass border border-border flex-1">
+              <div className="w-12 h-12 bg-accent-cyan/10 flex items-center justify-center mb-4">
                 <MapPin size={24} className="text-accent-cyan" />
               </div>
-              <h4 className="text-text-primary font-semibold mb-2">Localização</h4>
+              <h4 className="text-text-primary text-sm uppercase tracking-[0.1em] font-bold mb-2">Localização</h4>
               <p className="text-text-muted text-sm mb-3">
                 Atendemos todo o Brasil
               </p>

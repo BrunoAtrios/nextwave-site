@@ -130,7 +130,7 @@ export default function NeuralDigital() {
         const y = p1.y + (p2.y - p1.y) * localT;
         const grad = ctx.createRadialGradient(x, y, 0, x, y, 10);
         grad.addColorStop(0, "#fff");
-        grad.addColorStop(0.3, "#22d3ee");
+        grad.addColorStop(0.3, "#59a5ff");
         grad.addColorStop(1, "rgba(34, 211, 238, 0)");
         ctx.fillStyle = grad;
         ctx.beginPath();

@@ -36,7 +36,7 @@ export default function NeuralBiological() {
       speed: 0.002 + Math.random() * 0.003,
       fromIdx: 0,
       toIdx: 0,
-      color: ["#a78bfa", "#22d3ee", "#ec4899", "#f472b6"][Math.floor(Math.random() * 4)],
+      color: ["#1677ff", "#59a5ff", "#b9d9ff", "#0e4fad"][Math.floor(Math.random() * 4)],
     }));
 
     // === DENDRITOS — galhos orgânicos saindo do núcleo ===
@@ -141,7 +141,7 @@ export default function NeuralBiological() {
           p.t = 0;
           p.fromIdx = p.toIdx;
           p.toIdx = Math.floor(Math.random() * terminals.length);
-          p.color = ["#a78bfa", "#22d3ee", "#ec4899", "#f472b6"][Math.floor(Math.random() * 4)];
+          p.color = ["#1677ff", "#59a5ff", "#b9d9ff", "#0e4fad"][Math.floor(Math.random() * 4)];
         }
         const from = terminals[p.fromIdx];
         const to = terminals[p.toIdx];

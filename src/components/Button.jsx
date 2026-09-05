@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 const variants = {
-  primary: 'bg-gradient-to-r from-accent-primary to-accent-cyan text-white hover:opacity-90',
-  secondary: 'border border-border text-text-primary hover:bg-bg-tertiary hover:border-accent-primary',
+  primary: 'bg-accent-primary text-white hover:bg-accent-glow hover:shadow-lg hover:shadow-accent-primary/25',
+  secondary: 'border border-border text-text-primary hover:bg-bg-tertiary hover:border-accent-glow',
   ghost: 'text-text-secondary hover:text-text-primary hover:bg-bg-tertiary',
 }
 
@@ -23,7 +23,7 @@ export default function Button({
   href,
   ...props
 }) {
-  const classes = `inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`
+  const classes = `group inline-flex items-center justify-center gap-2 font-bold uppercase tracking-[0.1em] rounded-sm transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`
 
   const content = (
     <>

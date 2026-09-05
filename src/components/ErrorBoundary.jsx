@@ -20,7 +20,7 @@ export default class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen flex items-center justify-center p-6">
-          <div className="max-w-md text-center p-8 rounded-2xl glass border border-border">
+          <div className="max-w-md text-center p-8 rounded-sm glass border border-border">
             <h1 className="text-2xl font-bold text-text-primary mb-3">
               Algo deu errado
             </h1>
@@ -29,7 +29,7 @@ export default class ErrorBoundary extends Component {
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="px-5 py-2.5 bg-gradient-to-r from-accent-primary to-accent-cyan text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
+              className="px-5 py-2.5 bg-accent-primary text-white rounded-sm text-xs uppercase tracking-[0.1em] font-bold hover:bg-accent-glow transition-colors"
             >
               Recarregar
             </button>

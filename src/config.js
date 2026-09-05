@@ -1,12 +1,12 @@
 export const siteConfig = {
   brand: {
-    name: "Next Wave",
-    short: "NextWave",
-    tagline: "Engenharia e Automação Além do Óbvio",
+    name: "Next Sistemas",
+    short: "NextW",
+    tagline: "Soluções inteligentes. Resultados reais.",
     description:
-      "NextWave é o centro que orquestra o ecossistema ServOS, conectando ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras e Smart Card em uma plataforma única.",
+      "Next Sistemas transforma operações com soluções personalizadas, automação e software inteligente para empresas que querem avançar.",
     url: "https://www.nextw.com.br",
-    logo: "/3.webp",
+    logo: "/nextw-logo.png",
   },
   contact: {
     whatsappNumber: "5519991240130",
@@ -23,13 +23,13 @@ export const siteConfig = {
     youtube: "",
   },
   seo: {
-    author: "Next Wave Engenharia e Automação",
+    author: "Next Sistemas",
     keywords:
-      "NextWave, ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras, Smart Card, gestão empresarial, ERP, obras, igrejas, música, NFC, IA, Americana, São Paulo",
-    ogImage: "/3.webp",
+      "Next Sistemas, NextW, ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras, Smart Card, gestão empresarial, ERP, obras, igrejas, música, NFC, IA, Americana, São Paulo",
+    ogImage: "/nextw-identity-hero.png",
     locale: "pt_BR",
   },
 };
 
-export const whatsappLink = (message = "Olá! Gostaria de saber mais sobre as soluções da Next Wave.") =>
+export const whatsappLink = (message = "Olá! Gostaria de saber mais sobre as soluções da Next Sistemas.") =>
   `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(message)}`;

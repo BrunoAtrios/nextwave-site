@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Badge from "../components/Badge";
 import Button from "../components/Button";
 
@@ -45,7 +46,7 @@ function ParticleBackground() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(99, 102, 241, ${this.opacity})`;
+        ctx.fillStyle = `rgba(89, 165, 255, ${this.opacity})`;
         ctx.fill();
       }
     }
@@ -70,7 +71,7 @@ function ParticleBackground() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(99, 102, 241, ${0.06 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `rgba(89, 165, 255, ${0.09 * (1 - dist / 150)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -119,65 +120,66 @@ const itemVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden border-b border-border">
       <ParticleBackground />
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-[10%] left-[10%] w-[400px] h-[400px] rounded-full bg-gradient-to-br from-indigo-500/15 to-transparent blur-3xl animate-float" />
-      <div className="absolute top-[60%] right-[10%] w-[300px] h-[300px] rounded-full bg-gradient-to-br from-cyan-500/10 to-transparent blur-3xl animate-float-delayed" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,7,10,0.96)_0%,rgba(6,7,10,0.85)_38%,rgba(6,7,10,0.4)_68%,rgba(6,7,10,0.78)_100%)] z-[1]" />
+      <div className="absolute inset-0 bg-[url('/nextw-identity-hero.png')] bg-cover bg-center opacity-45 mix-blend-screen" />
+      <div className="absolute inset-0 grid-pattern opacity-50" />
+      <div className="absolute top-[8%] left-[3%] w-[35rem] h-[35rem] rounded-full bg-accent-primary/15 blur-[130px]" />
+      <div className="absolute bottom-[-18%] right-[7%] w-[28rem] h-[28rem] rounded-full bg-[#0d4da6]/25 blur-[110px]" />
       <div
-        className="absolute bottom-[10%] left-[40%] w-[250px] h-[250px] rounded-full bg-gradient-to-br from-purple-500/10 to-transparent blur-3xl animate-float"
+        className="absolute top-[12%] right-[10%] h-[72%] w-px bg-gradient-to-b from-transparent via-accent-glow/50 to-transparent hidden lg:block"
         style={{ animationDelay: "4s" }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-6 pt-32 pb-24 lg:pt-40 lg:pb-28">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          className="max-w-4xl"
         >
           <motion.div
             variants={itemVariants}
-            className="mb-8 flex justify-center"
+            className="mb-9"
           >
             <img
-              src="./3.webp"
-              alt="Next"
-              className="h-28 md:h-40 w-auto drop-shadow-2xl"
+              src="/nextw-logo.png"
+              alt="Next Sistemas"
+              width="318"
+              height="90"
+              className="h-16 md:h-[4.6rem] w-auto object-contain drop-shadow-[0_0_26px_rgba(89,165,255,0.22)]"
             />
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mb-8">
-            <Badge>NextWave · Ecossistema ServOS</Badge>
+          <motion.div variants={itemVariants} className="mb-7">
+            <Badge>Soluções inteligentes. Resultados reais.</Badge>
           </motion.div>
 
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[1.1] tracking-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.75rem] font-black mb-7 leading-[0.94] uppercase tracking-[-0.075em]"
           >
-            <span className="text-text-primary">NextWave</span>
+            <span className="text-text-primary">Soluções na medida</span>
             <br />
-            <span className="gradient-text">Engenharia e</span>
+            <span className="gradient-text">certa para cada</span>
             <br />
-            <span className="text-text-primary">Automação</span>
-            <br />
-            <span className="text-text-muted text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
-              Além do Óbvio
-            </span>
+            <span className="text-text-primary">negócio.</span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="text-text-secondary text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-text-secondary text-base sm:text-lg md:text-xl max-w-2xl mb-10 leading-relaxed"
           >
-            A <span className="text-text-primary font-semibold">NextWave</span> é o centro de tudo — orquestra o ecossistema <span className="text-accent-cyan font-semibold">ServOS</span>, conectando o <span className="text-text-primary font-medium">ServOS</span>, o <span className="text-text-primary font-medium">ServObras</span>, o <span className="text-text-primary font-medium">Next Gestão</span>, o <span className="text-text-primary font-medium">ServOS Church</span>, o <span className="text-text-primary font-medium">Minhas Cifras</span> e o <span className="text-text-primary font-medium">Smart Card</span> em uma plataforma única.
+            Aqui, a inteligência é você. Nossos sistemas potencializam sua operação e colocam tecnologia para trabalhar pelo resultado do seu negócio.
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-3"
           >
-            <Button href="#produtos" size="lg">
+            <Button href="#produtos" size="lg" icon>
               Conhecer Soluções
             </Button>
             <Button href="#contato" variant="secondary" size="lg">
@@ -191,15 +193,12 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute z-10 bottom-7 right-5 sm:right-8 flex items-center gap-3 text-[10px] uppercase tracking-[0.18em] text-text-muted"
       >
-        <div className="w-6 h-10 rounded-full border-2 border-text-muted/30 flex justify-center pt-2">
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1.5 h-1.5 rounded-full bg-accent-primary"
-          />
-        </div>
+        Explore
+        <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+          <ArrowDown size={15} className="text-accent-glow" />
+        </motion.div>
       </motion.div>
     </section>
   );

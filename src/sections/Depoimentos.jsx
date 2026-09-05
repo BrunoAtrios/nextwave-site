@@ -35,17 +35,17 @@ const cases = [
 
 export default function Depoimentos() {
   return (
-    <section className="py-24 md:py-32 px-6 relative overflow-hidden">
+    <section className="py-24 md:py-32 px-5 sm:px-6 relative overflow-hidden">
       <div className="absolute inset-0 mesh-gradient" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <SectionTitle
-          title="Onde os produtos da NextWave já rodam"
+          title="Onde nossas soluções já rodam"
           subtitle="Cenários reais extraídos dos projetos em produção"
           gradient
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {cases.map((c, i) => (
             <motion.div
               key={i}
@@ -53,18 +53,18 @@ export default function Depoimentos() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="relative p-6 md:p-8 rounded-2xl glass border border-border hover:border-accent-primary/20 transition-all duration-300 group"
+              className="relative p-6 md:p-8 rounded-sm glass border border-border hover:border-accent-primary/60 transition-all duration-300 group"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-accent-primary/10 text-accent-primary flex items-center justify-center">
+                <div className="w-10 h-10 bg-accent-primary/10 border border-accent-primary/20 text-accent-glow flex items-center justify-center group-hover:bg-accent-primary group-hover:text-white transition-colors">
                   {c.icon}
                 </div>
-                <span className="text-xs uppercase tracking-wider text-accent-cyan font-semibold">
+                <span className="text-[10px] uppercase tracking-[0.16em] text-accent-glow font-bold">
                   {c.context}
                 </span>
               </div>
 
-              <h3 className="text-lg md:text-xl font-bold text-text-primary mb-3 leading-snug">
+              <h3 className="text-lg md:text-xl font-black uppercase tracking-[-0.03em] text-text-primary mb-3 leading-snug">
                 {c.title}
               </h3>
 
@@ -73,7 +73,7 @@ export default function Depoimentos() {
               </p>
 
               <div className="flex items-center justify-end">
-                <span className="text-xs px-2.5 py-1 rounded-full bg-accent-primary/10 text-accent-primary font-medium">
+                <span className="text-[10px] px-2.5 py-1 border border-accent-primary/25 bg-accent-primary/10 text-accent-glow uppercase tracking-[0.1em] font-bold">
                   {c.product}
                 </span>
               </div>

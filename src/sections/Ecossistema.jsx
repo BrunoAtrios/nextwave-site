@@ -15,43 +15,31 @@ const modules = [
     icon: <Server size={24} />,
     label: "ServOS",
     desc: "Gestão integrada multi-tenant",
-    color: "from-indigo-400 to-purple-500",
-    shadow: "shadow-indigo-500/20",
   },
   {
     icon: <HardHat size={24} />,
     label: "ServObras",
     desc: "Gestão de obras de engenharia",
-    color: "from-amber-400 to-orange-500",
-    shadow: "shadow-amber-500/20",
   },
   {
     icon: <Factory size={24} />,
     label: "Next Gestão",
     desc: "ERP para chão de fábrica",
-    color: "from-blue-400 to-indigo-500",
-    shadow: "shadow-blue-500/20",
   },
   {
     icon: <Church size={24} />,
     label: "ServOS Church",
     desc: "Gestão para igrejas",
-    color: "from-emerald-400 to-teal-500",
-    shadow: "shadow-emerald-500/20",
   },
   {
     icon: <Music size={24} />,
     label: "Minhas Cifras",
     desc: "Repertório e ferramentas do músico",
-    color: "from-pink-400 to-rose-500",
-    shadow: "shadow-pink-500/20",
   },
   {
     icon: <CreditCard size={24} />,
     label: "Smart Card",
     desc: "Cartão digital com NFC",
-    color: "from-cyan-400 to-sky-500",
-    shadow: "shadow-cyan-500/20",
   },
 ];
 
@@ -59,18 +47,18 @@ export default function Ecossistema() {
   return (
     <section
       id="ecossistema"
-      className="py-24 md:py-32 px-6 relative overflow-hidden"
+      className="py-24 md:py-32 px-5 sm:px-6 relative overflow-hidden"
     >
       <div className="absolute inset-0 mesh-gradient" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <SectionTitle
-          title="Ecossistema ServOS"
-          subtitle="A NextWave orquestra todos os produtos do ecossistema ServOS em uma plataforma única"
+          title="Soluções que se conectam"
+          subtitle="A Next Sistemas integra gestão, automação e tecnologia em produtos pensados para operações reais"
           gradient
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px max-w-6xl mx-auto bg-border border border-border">
           {modules.slice(0, 3).map((mod, i) => (
             <motion.div
               key={i}
@@ -78,19 +66,19 @@ export default function Ecossistema() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="p-5 rounded-2xl glass border border-border hover:border-accent-primary/20 transition-all duration-300 group text-center"
+              className="p-6 bg-bg-secondary hover:bg-bg-tertiary transition-all duration-300 group text-center"
             >
               <div
-                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${mod.color} flex items-center justify-center text-white mx-auto mb-3 shadow-lg ${mod.shadow} group-hover:scale-110 transition-transform`}
+                className="w-12 h-12 bg-accent-primary/10 border border-accent-primary/25 flex items-center justify-center text-accent-glow mx-auto mb-4 group-hover:bg-accent-primary group-hover:text-white group-hover:border-accent-primary transition-all"
               >
                 {mod.icon}
               </div>
-              <h4 className="text-text-primary font-semibold text-sm mb-1">
+              <h4 className="text-text-primary font-bold text-sm uppercase tracking-[0.08em] mb-2">
                 {mod.label}
               </h4>
-              <p className="text-text-muted text-xs mb-2">{mod.desc}</p>
-              <span className="inline-block text-[10px] uppercase tracking-wider text-accent-cyan/70 font-semibold">
-                via NextWave
+              <p className="text-text-muted text-xs mb-3">{mod.desc}</p>
+              <span className="inline-block text-[10px] uppercase tracking-[0.16em] text-accent-glow font-bold">
+                  via Next Sistemas
               </span>
             </motion.div>
           ))}
@@ -100,9 +88,9 @@ export default function Ecossistema() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="hidden md:flex items-center justify-center"
+            className="hidden md:flex items-center justify-center bg-bg-secondary"
           >
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-accent-primary/40 to-accent-primary/60" />
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-accent-primary/60 to-accent-primary" />
           </motion.div>
 
           <motion.div
@@ -110,14 +98,14 @@ export default function Ecossistema() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
-            className="flex items-center justify-center py-8 md:py-0"
+            className="flex items-center justify-center py-10 md:py-0 bg-bg-primary relative overflow-hidden"
           >
             <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent-primary to-accent-cyan opacity-20 blur-xl scale-150" />
-              <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-accent-primary to-accent-cyan flex items-center justify-center shadow-2xl shadow-accent-primary/30">
+              <div className="absolute inset-0 bg-accent-primary opacity-25 blur-2xl scale-125" />
+              <div className="relative w-32 h-32 md:w-36 md:h-36 border border-accent-glow/50 bg-gradient-to-br from-accent-primary to-[#0b3570] flex items-center justify-center shadow-2xl shadow-accent-primary/30">
                 <div className="text-center">
                   <Cpu size={36} className="text-white mx-auto mb-1" />
-                  <span className="text-white text-sm font-bold">NextWave</span>
+                  <span className="text-white text-xs font-bold uppercase tracking-[0.1em]">NextW</span>
                 </div>
               </div>
             </div>
@@ -128,9 +116,9 @@ export default function Ecossistema() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="hidden md:flex items-center justify-center"
+            className="hidden md:flex items-center justify-center bg-bg-secondary"
           >
-            <div className="w-full h-px bg-gradient-to-r from-accent-primary/60 via-accent-primary/40 to-transparent" />
+            <div className="w-full h-px bg-gradient-to-r from-accent-primary via-accent-primary/60 to-transparent" />
           </motion.div>
 
           {modules.slice(3, 6).map((mod, i) => (
@@ -140,19 +128,19 @@ export default function Ecossistema() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-              className="p-5 rounded-2xl glass border border-border hover:border-accent-primary/20 transition-all duration-300 group text-center"
+              className="p-6 bg-bg-secondary hover:bg-bg-tertiary transition-all duration-300 group text-center"
             >
               <div
-                className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${mod.color} flex items-center justify-center text-white mx-auto mb-3 shadow-lg ${mod.shadow} group-hover:scale-110 transition-transform`}
+                className="w-12 h-12 bg-accent-primary/10 border border-accent-primary/25 flex items-center justify-center text-accent-glow mx-auto mb-4 group-hover:bg-accent-primary group-hover:text-white group-hover:border-accent-primary transition-all"
               >
                 {mod.icon}
               </div>
-              <h4 className="text-text-primary font-semibold text-sm mb-1">
+              <h4 className="text-text-primary font-bold text-sm uppercase tracking-[0.08em] mb-2">
                 {mod.label}
               </h4>
-              <p className="text-text-muted text-xs mb-2">{mod.desc}</p>
-              <span className="inline-block text-[10px] uppercase tracking-wider text-accent-cyan/70 font-semibold">
-                via NextWave
+              <p className="text-text-muted text-xs mb-3">{mod.desc}</p>
+              <span className="inline-block text-[10px] uppercase tracking-[0.16em] text-accent-glow font-bold">
+                  via Next Sistemas
               </span>
             </motion.div>
           ))}
@@ -166,10 +154,10 @@ export default function Ecossistema() {
           className="mt-16 text-center max-w-2xl mx-auto"
         >
           <p className="text-text-secondary leading-relaxed">
-            A <span className="text-accent-primary font-semibold">NextWave</span>{" "}
-            é o centro de tudo. Ela mantém o ecossistema{" "}
+            A <span className="text-accent-glow font-semibold">Next Sistemas</span>{" "}
+            conecta as soluções do ecossistema{" "}
             <span className="text-accent-cyan font-semibold">ServOS</span> e seus
-            módulos se complementam em casos reais — da gestão da indústria à equipe de música da igreja, da obra civil à fábrica de cartões NFC.
+            módulos para responder a necessidades reais, da gestão da indústria à equipe de música da igreja, da obra civil à fábrica de cartões NFC.
           </p>
         </motion.div>
       </div>

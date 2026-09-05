@@ -15,7 +15,7 @@ const technologies = [
   {
     name: "PHP",
     icon: <Code2 size={20} />,
-    color: "from-indigo-400 to-purple-600",
+    color: "from-blue-400 to-sky-600",
   },
   {
     name: "Laravel",
@@ -70,7 +70,7 @@ const technologies = [
   {
     name: "Web Audio API",
     icon: <Cog size={20} />,
-    color: "from-violet-400 to-purple-500",
+    color: "from-blue-400 to-indigo-500",
   },
 ];
 
@@ -78,7 +78,7 @@ export default function TechStack() {
   return (
     <section
       id="tech"
-      className="py-24 md:text-5xl md:py-32 px-6 bg-bg-secondary relative overflow-hidden"
+      className="py-24 md:py-32 px-5 sm:px-6 bg-bg-secondary relative overflow-hidden"
     >
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
@@ -91,11 +91,11 @@ export default function TechStack() {
       >
         <SectionTitle
           title="Tecnologias"
-          subtitle="Stack real, usada em produção nos produtos da NextWave"
+          subtitle="Stack real, usada em produção nas soluções da Next Sistemas"
           gradient
         />
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px bg-border border border-border">
           {technologies.map((tech, i) => (
             <motion.div
               key={tech.name}
@@ -104,15 +104,15 @@ export default function TechStack() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               whileHover={{ scale: 1.08, y: -4 }}
-              className="relative group"
+              className="relative group bg-bg-secondary"
             >
-              <div className="relative p-5 rounded-xl glass border border-border hover:border-accent-primary/30 transition-all duration-300 text-center">
+              <div className="relative p-5 bg-bg-secondary hover:bg-bg-tertiary transition-all duration-300 text-center">
                 <div
-                  className={`w-10 h-10 rounded-lg bg-gradient-to-br ${tech.color} flex items-center justify-center mx-auto mb-3 text-white shadow-md group-hover:shadow-lg transition-shadow`}
+                  className="w-10 h-10 bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center mx-auto mb-3 text-accent-glow group-hover:bg-accent-primary group-hover:text-white transition-colors"
                 >
                   {tech.icon}
                 </div>
-                <span className="text-xs font-semibold text-text-secondary group-hover:text-text-primary transition-colors">
+                <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-text-secondary group-hover:text-text-primary transition-colors">
                   {tech.name}
                 </span>
               </div>
@@ -127,7 +127,7 @@ export default function TechStack() {
           transition={{ delay: 0.6, duration: 0.6 }}
           className="mt-12 text-center"
         >
-          <p className="text-text-muted text-sm">
+          <p className="text-text-muted text-xs uppercase tracking-[0.14em]">
             Edge computing &bull; PWA instalável &bull; Cloudflare Tunnel &bull; Raspberry Pi &bull; GitHub Actions + FTP/FTPS
           </p>
         </motion.div>

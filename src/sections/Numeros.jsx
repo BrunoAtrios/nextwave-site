@@ -56,13 +56,13 @@ const stats = [
     icon: <Sparkles size={24} />,
     value: 100,
     suffix: "%",
-    label: "Código próprio da NextWave",
+    label: "Código próprio da Next Sistemas",
   },
 ];
 
 export default function Numeros() {
   return (
-    <section className="py-20 px-6 relative overflow-hidden border-t border-b border-border/50">
+    <section className="py-16 md:py-20 px-5 sm:px-6 relative overflow-hidden border-y border-border bg-bg-secondary">
       <div className="absolute inset-0 mesh-gradient" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
@@ -71,7 +71,7 @@ export default function Numeros() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10"
         >
           {stats.map((stat, i) => (
             <motion.div
@@ -80,15 +80,15 @@ export default function Numeros() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="text-center group"
+              className="text-center group md:border-r md:border-border last:border-0"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-accent-primary/10 text-accent-primary mb-4 group-hover:bg-accent-primary/20 transition-colors">
+              <div className="inline-flex items-center justify-center w-10 h-10 bg-accent-primary/10 text-accent-glow mb-4 group-hover:bg-accent-primary group-hover:text-white transition-colors">
                 {stat.icon}
               </div>
-              <div className="text-3xl md:text-4xl font-bold text-text-primary mb-1">
+              <div className="text-3xl md:text-4xl font-black text-text-primary mb-2 tracking-[-0.06em]">
                 <AnimatedCounter end={stat.value} suffix={stat.suffix} />
               </div>
-              <div className="text-text-muted text-sm">{stat.label}</div>
+              <div className="text-text-muted text-xs uppercase tracking-[0.1em] max-w-[12rem] mx-auto">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

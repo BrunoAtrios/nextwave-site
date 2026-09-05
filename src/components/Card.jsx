@@ -5,16 +5,16 @@ export default function Card({ icon, title, description, href }) {
     <motion.div
       whileHover={{ y: -4, scale: 1.02 }}
       transition={{ duration: 0.2 }}
-      className="group relative p-6 rounded-2xl glass hover:border-accent-primary/30 cursor-pointer"
+      className="group relative p-6 rounded-sm glass hover:border-accent-primary/50 cursor-pointer"
     >
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-primary/5 to-accent-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 rounded-sm bg-gradient-to-br from-accent-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
       <div className="relative z-10">
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-primary/20 to-accent-cyan/20 flex items-center justify-center mb-4 text-accent-primary group-hover:text-accent-cyan transition-colors">
+        <div className="w-12 h-12 rounded-sm bg-accent-primary/15 flex items-center justify-center mb-4 text-accent-glow group-hover:bg-accent-primary group-hover:text-white transition-colors">
           {icon}
         </div>
 
-        <h3 className="text-lg font-semibold text-text-primary mb-2 group-hover:text-white transition-colors">
+        <h3 className="text-lg font-bold uppercase tracking-[-0.02em] text-text-primary mb-2 group-hover:text-white transition-colors">
           {title}
         </h3>
 
@@ -24,7 +24,7 @@ export default function Card({ icon, title, description, href }) {
 
         <a
           href={href || '#'}
-          className="inline-flex items-center gap-1 text-sm text-accent-primary hover:text-accent-cyan transition-colors group/link"
+          className="inline-flex items-center gap-1 text-xs uppercase tracking-[0.12em] font-bold text-accent-glow hover:text-accent-cyan transition-colors group/link"
         >
           Saiba mais
           <svg className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

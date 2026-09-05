@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
 const navLinks = [
@@ -44,16 +44,16 @@ export default function Navigation() {
           : "bg-transparent py-5"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between" aria-label="Navegação principal">
-        <a href="#" className="flex items-center gap-3 group" aria-label="Next Wave — página inicial">
+      <nav className="max-w-7xl mx-auto px-5 sm:px-6 flex items-center justify-between" aria-label="Navegação principal">
+        <a href="#" className="flex items-center gap-3 group" aria-label="Next Sistemas - página inicial">
           <img
-            src="./3.webp"
-            alt="Next Wave"
-            width="36"
-            height="36"
+            src="/nextw-logo.png"
+            alt="Next Sistemas"
+            width="142"
+            height="40"
             loading="eager"
             decoding="async"
-            className="h-9 w-auto transition-transform group-hover:scale-105"
+            className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-[1.03]"
           />
         </a>
 
@@ -74,9 +74,10 @@ export default function Navigation() {
         <a
           href="#contato"
           onClick={(e) => handleAnchorClick(e, "#contato")}
-          className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-accent-primary to-accent-cyan text-white text-sm font-medium rounded-lg hover:shadow-lg hover:shadow-accent-primary/25 transition-all duration-300 hover:scale-105"
+          className="hidden lg:inline-flex items-center gap-2 px-4 py-2.5 bg-accent-primary text-white text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-accent-glow hover:shadow-lg hover:shadow-accent-primary/25 transition-all duration-300"
         >
           Fale Conosco
+          <ArrowUpRight size={15} />
         </a>
 
         <button
@@ -106,7 +107,7 @@ export default function Navigation() {
                   <a
                     href={link.href}
                     onClick={(e) => handleAnchorClick(e, link.href)}
-                    className="block text-text-secondary hover:text-text-primary transition-colors text-base py-2"
+                    className="block text-text-secondary hover:text-accent-cyan transition-colors text-sm font-semibold uppercase tracking-[0.12em] py-2"
                   >
                     {link.label}
                   </a>
@@ -116,9 +117,10 @@ export default function Navigation() {
                 <a
                   href="#contato"
                   onClick={(e) => handleAnchorClick(e, "#contato")}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-accent-primary to-accent-cyan text-white text-sm font-medium rounded-lg w-full justify-center"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-accent-primary text-white text-xs font-bold uppercase tracking-[0.12em] rounded-sm w-full justify-center"
                 >
                   Fale Conosco
+                  <ArrowUpRight size={15} />
                 </a>
               </li>
             </ul>

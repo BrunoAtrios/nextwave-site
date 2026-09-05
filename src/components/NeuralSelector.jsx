@@ -16,7 +16,7 @@ export default function NeuralSelector() {
     <div className="relative w-full">
       {/* Switcher */}
       <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30">
-        <div className="inline-flex p-1 rounded-full glass-strong border border-purple-500/30 shadow-lg shadow-purple-500/20">
+        <div className="inline-flex p-1 rounded-full glass-strong border border-accent-primary/30 shadow-lg shadow-accent-primary/20">
           {variants.map((v) => {
             const isActive = active === v.id;
             return (
@@ -34,7 +34,7 @@ export default function NeuralSelector() {
                 {isActive && (
                   <motion.span
                     layoutId="neural-tab-bg"
-                    className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 shadow-lg shadow-purple-500/40"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-accent-primary to-accent-glow shadow-lg shadow-accent-primary/40"
                     transition={{ type: "spring", duration: 0.5 }}
                   />
                 )}

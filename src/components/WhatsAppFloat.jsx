@@ -10,7 +10,7 @@ export default function WhatsAppFloat() {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 2, duration: 0.4, type: "spring" }}
-      className="whatsapp-float pulse-ring"
+      className="whatsapp-float pulse-ring border border-white/30"
       aria-label="Fale conosco pelo WhatsApp"
     >
       <svg viewBox="0 0 24 24" width="28" height="28" fill="white">

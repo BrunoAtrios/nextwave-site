@@ -1,202 +1,28 @@
-# Contexto do Projeto NextWave - Site Institucional
+<!--
+ARQUIVO GERADO AUTOMATICAMENTE PELO CONTEXT LITE.
+NÃO EDITAR MANUALMENTE.
+Fonte: C:\Users\Dev\.context-lite\context.db
+-->
 
-## Resumo do Projeto
+# Projeto
 
-Site institucional da **NextWave** (empresa de automação, IA e infraestrutura). A **NextWave é o centro de tudo** — ela orquestra o **ecossistema ServOS** (plataforma/sistemas). Design dark mode premium estilo Apple/Vercel, otimizado para hospedagem compartilhada **HostGator Plano M**.
+- Nome: Site Next
+- ID: `site-next`
 
-**Site no ar:** https://www.nextw.com.br (HTTP também funciona, redireciona pra HTTPS)
+## Objetivo
+- Site institucional da NextWave para apresentar o ecossistema de produtos.
 
----
+## Arquitetura
+- Stack: `React 18 + Vite 5 + Tailwind 3 + Framer Motion`
+- application_shell: A página principal usa ErrorBoundary, navegação, progresso de rolagem e carregamento preguiçoso de seções por React.lazy e Suspense.
+- build_output: A build gera assets com hash, divide pacotes de React, Framer Motion e ícones e usa alvo es2020.
 
-## Stack Técnica
+## Decisões ativas
+- NextWave é a marca central e ServOS é o ecossistema operacional apresentado pelo site. Motivo: Manter a hierarquia de marca consistente no conteúdo institucional.
+- Dados de contato e marca ficam centralizados em src/config.js. Motivo: Evitar divergência entre seções do site.
 
-- React 18 + Vite 5 (target es2020, code-splitting manual)
-- Tailwind CSS 3 (dark mode premium)
-- Framer Motion 11 (animações)
-- Lucide React (ícones)
-- SPA estática com .htaccess para HostGator
-- Sharp (geração de PNGs do favicon)
+## Regras importantes
+- production_artifacts: O pós-build copia .htaccess, robots.txt e sitemap.xml para dist; Apache aplica fallback SPA, cache de assets e headers de segurança.
 
----
-
-## Repositório & Deploy
-
-- **GitHub:** https://github.com/BrunoAtrios/nextwave-site
-- **Branch principal:** `main`
-- **Deploy automático:** GitHub Actions → FTP HostGator (SamKirkland/FTP-Deploy-Action@v4.4.0)
-- **Workflows:**
-  - `.github/workflows/deploy.yml` — build + deploy FTP (push na main)
-  - `.github/workflows/build.yml` — validação do build (PRs)
-
-### Configuração FTP (HostGator)
-
-- **Host:** `sh00066.hostgator.com.br`
-- **User:** `ftpadmin@nextw.com.br`
-- **Remote Dir:** `/` (FTP aponta pra `/home1/brun6929/public_html/`)
-- **Senha:** ⚠️ **TROCAR** (foi exposta em texto plano durante setup)
-
-### Secrets cadastrados no GitHub
-
-| Secret | Valor |
-|---|---|
-| `FTP_HOST` | `sh00066.hostgator.com.br` |
-| `FTP_USERNAME` | `ftpadmin@nextw.com.br` |
-| `FTP_PASSWORD` | ⚠️ trocar |
-| `FTP_REMOTE_DIR` | `/` |
-
----
-
-## DNS e Servidor
-
-- **Domínio:** `nextw.com.br` (Domínio Principal na HostGator)
-- **Document Root:** `/home1/brun6929/public_html/`
-- **IP do servidor:** `69.6.213.154`
-- **DNS Cloudflare:** registros A com proxy **DNS only (cinza)** apontando pro IP
-- **Status HTTP:** ✅ Funcionando, redireciona pra HTTPS
-- **Status HTTPS:** ✅ Funcionando (Let's Encrypt, válido até 27/11/2026)
-
-### Pendências DNS/SSL
-
-1. ~~Ativar **AutoSSL** no cPanel~~ ✅ Concluído em 2026-08-30 (certificado Let's Encrypt emitido para `www.nextw.com.br`, válido até 27/11/2026)
-2. ~~Ativar **Force HTTPS Redirect**~~ ✅ Concluído
-3. Configurar subdomínios no Cloudflare (atualmente usam DNS da HostGator direto)
-4. **Renovar certificado AutoSSL** — Let's Encrypt expira em 90 dias, cPanel renova automaticamente cerca de30 dias antes da expiração (verificar)
-
----
-
-## Hierarquia de marca
-
-- **NextWave** (Nextw) = marca / centro orquestrador — **é o "cérebro de tudo"**
-- **ServOS** = nome do ecossistema/plataforma dos sistemas
-- Módulos orbitam o NextWave (central) e rodam sob a plataforma ServOS
-
-Essa hierarquia está explícita em:
-- Hero (badge "NextWave · Ecossistema ServOS")
-- Ecossistema (núcleo central = NextWave, módulos com selo "via NextWave")
-- Copy da seção IA
-
----
-
-## Estrutura do Site (Seções)
-
-1. **Hero** - Particle background animado, logo NextWave, badge "NextWave · Ecossistema ServOS", CTAs. Subtítulo agora menciona explicitamente os 6 produtos (ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras, Smart Card).
-2. **Números** - Contadores animados de portfólio (6 produtos no ecossistema ServOS, 13 projetos em portfólio, 5 áreas de atuação, 100% código próprio).
-3. **Ecossistema ServOS** - Diagrama com **NextWave no centro** e 6 cards (ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras, Smart Card), cada um com selo "via NextWave".
-4. **Produtos** - Grid 6 cards com os 6 produtos reais, cada um com descrição e 4-5 capacidades extraídas dos contextos.
-5. **Automação com IA** - Seção destaque com **cérebro neural animado** e seletor Biológica/Digital. Copy reescrita para refletir capacidades reais já em produção (orquestração de modelos, voz neural pt-BR, memória persistente, detecção de acordes, hardening de segurança).
-6. **Tech Stack** - Grid 12 tecnologias com o stack real usado nos 13 projetos (PHP, Laravel, Python, Node.js, React, MySQL, SQLite, Docker, Cloudflare, GitHub Actions, Ollama, Web Audio API).
-7. **Onde os produtos da NextWave já rodam** - Quatro cases reais extraídos dos contextos (obra civil, chão de fábrica, igreja, equipe de música). Substitui depoimentos fictícios.
-8. **Contato** - Formulário → WhatsApp + 3 cards (WhatsApp, Email, Localização).
-9. **Footer** - Links para os 6 produtos, links da empresa, legal, redes sociais e assinatura Bruno Ferreira.
-
----
-
-## Componentes (src/components/)
-
-- `Navigation.jsx` — Fixed glass, scroll spy, drawer mobile
-- `ScrollProgress.jsx` — Barra de progresso no topo
-- `WhatsAppFloat.jsx` — Botão flutuante com pulse-ring
-- `ErrorBoundary.jsx` — Captura erros de runtime
-- `Badge.jsx`, `Button.jsx`, `Card.jsx`, `SectionTitle.jsx` — UI base
-- `NeuralBiological.jsx` — Cérebro com dendritos + sinapses (canvas)
-- `NeuralDigital.jsx` — Cérebro com hex grid + circuitos (canvas)
-- `NeuralSelector.jsx` — Toggle entre Biológica/Digital com AnimatePresence
-
----
-
-## Produtos da Empresa (mencionados no site)
-
-| Produto                | Descrição                                                      |
-| ---------------------- | -------------------------------------------------------------- |
-| ServOS                 | Gestão integrada multi-tenant (Kanban de OS, financeiro, WhatsApp via gateway AWAH, expedição com GPS, RBAC granular) |
-| ServObras              | Gestão de obras de engenharia (checklist 32 etapas, cronograma 3 níveis, diário, financeiro com fechamento mensal, perfil supervisor + auditoria) |
-| Next Gestão            | ERP para chão de fábrica (Kanban, RFID de facas, RH com ponto, expedição PWA online-first, mascote Scot no login, HSTS+CSP+CSRF) |
-| ServOS Church          | Gestão para igrejas (membros, ministérios, células, agenda com calendário, financeiro, avisos, devocionais, busca global, importação CSV, PWA) |
-| Minhas Cifras          | Repertório e 14 ferramentas do músico (afinador, detector de acordes Meyda, metrônomo, treino de ouvido, círculo de quintas, conversor entre instrumentos, compositor assistido, rastreador de pitch, loop station, cronômetro de culto, auto-scroll, capo, estatísticas, busca), chat walkie-talkie, PWA, pads ao vivo, stems |
-| Smart Card             | Cartão digital + NFC (geração em lote UUID, ativação por URL única, mockup iPhone, ícones sociais dinâmicos, fluxo para fábrica gráfica, versionamento via version.json) |
-
-> Itens removidos do site por falta de evidência nos contextos:
-> "Automação Residencial", "NFC & UHF", "Redes & Infraestrutura", contadores genéricos ("150+ projetos", "80+ clientes", "5+ anos", "99% uptime") e depoimentos atribuídos a clientes fictícios.
-
----
-
-## Efeitos Visuais
-
-- Particle canvas com conexões no Hero
-- Gradient mesh backgrounds
-- Glassmorphism (glass, glass-strong)
-- Card shine effect
-- Border gradient hover
-- Scroll progress bar
-- Animated counters
-- Floating gradient orbs
-- Noise texture overlay
-- Neural canvas animations (Biológica + Digital)
-- Floating metrics cards na seção IA
-- AI feature cards com hover shine
-
----
-
-## Contatos
-
-- Site: www.nextw.com.br
-- WhatsApp: (19) 99124-0130 (DDI+55: 5519991240130)
-- Email: contato@nextw.com.br
-- Localização: Americana - SP
-
-> Fonte única: `src/config.js` (todos os componentes importam daqui)
-
----
-
-## Otimizações aplicadas
-
-- Lazy loading de todas as sections (Suspense + code-splitting manual de react/framer-motion/lucide)
-- Preload do logo + fontes críticas (reduz LCP/CLS)
-- Splash inline no `<head>` evita FOUC
-- Partículas pausam com `visibilitychange` + respeitam `prefers-reduced-motion`
-- Headers de segurança (CSP, HSTS, X-Frame-Options, Permissions-Policy)
-- Cache imutável para assets versionados (.htaccess)
-- Gzip + fallback Brotli configurados
-- ErrorBoundary para falhas de runtime
-- Skip-link, focus visível, aria-labels, prefers-reduced-motion
-- JSON-LD Organization + LocalBusiness
-- robots.txt + sitemap.xml
-- Mobile offset nas âncoras para compensar header fixo
-- WhatsApp e e-mail exibidos em todos os pontos de contato com `mailto:`/`wa.me` reais
-
----
-
-## Favicon
-
-- **SVG:** Letra "N" estilizada com gradiente NextWave (`#6366f1` → `#818cf8` → `#22d3ee`) sobre fundo dark (`#0a0a0f` → `#12121a`)
-- **PNGs gerados:** 16, 32, 48, 64, 128, 192, 256, 512px
-- **Script gerador:** `scripts/gen-favicon.mjs` (usa `sharp`)
-
----
-
-## Workflow de Trabalho (resumo)
-
-```bash
-# Editar código...
-
-git add -A
-git commit -m "feat: minha mudança"
-git push  # → GitHub Actions faz build + FTP deploy automático
-```
-
-Acompanhar deploys em: https://github.com/BrunoAtrios/nextwave-site/actions
-
----
-
-## ⚠️ Pendências
-
-1. ~~**Ativar AutoSSL** no cPanel~~ ✅ Concluído
-2. ~~**Configurar Force HTTPS Redirect**~~ ✅ Concluído
-3. **Trocar senha do FTP** `ftpadmin@nextw.com.br` (segurança — senha foi exposta em texto plano durante setup)
-4. **DNS dos subdomínios** (servobras, teste, atagestao) — atualmente funcionam via DNS HostGator direto, podem precisar de atenção se algo mudar
-5. Chaves SSH geradas no Windows (`~/.ssh/nextwave_deploy*`) — deletar do cPanel se não usadas (Auth ainda autorizada)
-6. **Renovação AutoSSL** — Let's Encrypt renova automaticamente a cada ~60 dias, mas vale verificar antes da expiração (27/11/2026)
-
----
-
-_Última atualização: 2026-08-30 (refinamento com base na auditoria dos 13 contexto_ia.md do ecossistema 00_SISTEMA_BRUNO: produtos substituídos por ServOS, ServObras, Next Gestão, ServOS Church, Minhas Cifras e Smart Card; depoimentos fictícios removidos; métricas sem evidência substituídas por contagens reais de portfólio; copy de IA ajustada para refletir capacidades já em produção)._
+## Tarefas abertas
+- [A fazer] Acompanhar renovação automática de SSL e revisar configuração DNS dos subdomínios.

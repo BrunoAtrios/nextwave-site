@@ -64,3 +64,4 @@ graphify-out/cache
 
 # Config local da IDE (Kilo / Cursor / etc)
 .config/
+.context/
