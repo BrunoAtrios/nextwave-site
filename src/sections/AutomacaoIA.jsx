@@ -134,7 +134,7 @@ export default function AutomacaoIA() {
               <div className="ai-metric-value">
                 <Activity size={20} className="inline text-accent-glow" />
               </div>
-              <div className="ai-metric-label">100% Local</div>
+              <div className="ai-metric-label">Local + Cloud</div>
             </motion.div>
 
             <motion.div

@@ -26,7 +26,7 @@ import PortfolioFlow from "../components/PortfolioFlow";
 import PortfolioNavigation from "../components/PortfolioNavigation";
 import Seo from "../components/Seo";
 import { capabilities, controlPrinciples, processSteps, solutions } from "../content/portfolio";
-import { siteConfig, whatsappLink } from "../config";
+import { routeMeta, siteConfig, whatsappLink } from "../config";
 
 const reveal = (reduceMotion, delay = 0) => ({
   initial: reduceMotion ? false : { opacity: 0, y: 28 },
@@ -528,10 +528,10 @@ export default function PortfolioPage() {
   return (
     <div className="portfolio-page">
       <Seo
-        title="Portfólio NextW Sistemas | Software, IA, IoT e RFID"
-        description="Conheça as competências e soluções da NextW Sistemas em software sob medida, automação, integração, Inteligência Artificial, IoT, AIoT e RFID."
-        canonicalPath="/portfolio"
-        image="/nextw-identity-hero.png"
+        title={routeMeta.portfolio.title}
+        description={routeMeta.portfolio.description}
+        canonicalPath={routeMeta.portfolio.canonicalPath}
+        image={routeMeta.portfolio.image}
       />
       <a href="#portfolio-main" className="skip-link">Pular para o conteúdo</a>
       <PortfolioNavigation />

@@ -33,3 +33,26 @@ export const siteConfig = {
 
 export const whatsappLink = (message = "Olá! Gostaria de saber mais sobre as soluções da Next Sistemas.") =>
   `https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+// Metadados por rota. São a fonte única usada em tempo de execução pelo
+// componente Seo e em tempo de build pelo scripts/postbuild.mjs, que gera o
+// HTML estático de cada rota para rastreadores e previews de link.
+export const routeMeta = {
+  home: {
+    title: "Next Sistemas | Soluções Inteligentes, Resultados Reais — Americana/SP",
+    description:
+      "Next Sistemas cria soluções personalizadas de automação, gestão e software para empresas que querem operar melhor e crescer. Atendimento em todo o Brasil, base em Americana-SP.",
+    canonicalPath: "/",
+    image: "/nextw-identity-hero.png",
+  },
+  portfolio: {
+    title: "Portfólio NextW Sistemas | Software, IA, IoT e RFID",
+    description:
+      "Conheça as competências e soluções da NextW Sistemas em software sob medida, automação, integração, Inteligência Artificial, IoT, AIoT e RFID.",
+    canonicalPath: "/portfolio",
+    image: "/nextw-identity-hero.png",
+    noscriptHeading: "Portfólio NextW Sistemas",
+    noscriptBody:
+      "A NextW Sistemas desenvolve software sob medida, automação de processos, integração de plataformas, Inteligência Artificial aplicada, IoT, AIoT e projetos de RFID. Atuamos com empresas privadas e temos capacidade para colaborar com órgãos públicos e governos municipais e estaduais.",
+  },
+};

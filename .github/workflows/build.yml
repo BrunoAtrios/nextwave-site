@@ -35,6 +35,9 @@ jobs:
       - name: Validate dist
         run: |
           test -f dist/index.html || (echo "index.html missing" && exit 1)
+          test -f dist/portfolio.html || (echo "portfolio.html missing" && exit 1)
+          grep -q "Portfólio NextW Sistemas" dist/portfolio.html || (echo "portfolio.html sem titulo proprio" && exit 1)
+          grep -q 'rel="canonical" href="https://www.nextw.com.br/portfolio"' dist/portfolio.html || (echo "portfolio.html sem canonical proprio" && exit 1)
           test -f dist/.htaccess || (echo ".htaccess missing" && exit 1)
           test -f dist/robots.txt || (echo "robots.txt missing" && exit 1)
           test -f dist/sitemap.xml || (echo "sitemap.xml missing" && exit 1)

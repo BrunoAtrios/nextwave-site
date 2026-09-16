@@ -24,6 +24,12 @@ RewriteBase /
     RewriteRule ^(.*)$ $1.gz [L]
 </IfModule>
 
+# HTML estático por rota — entrega os metadados corretos a rastreadores e
+# previews de link. Se o arquivo não existir, a regra é ignorada e o fallback
+# SPA abaixo atende a rota normalmente.
+RewriteCond %{DOCUMENT_ROOT}/portfolio.html -f
+RewriteRule ^portfolio/?$ /portfolio.html [L]
+
 # Fallback SPA
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
