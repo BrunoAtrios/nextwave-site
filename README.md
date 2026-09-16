@@ -1,7 +1,16 @@
-# NextWave — Site Institucional
+# NextW Sistemas — Site Institucional
 
-> Site institucional da **NextWave** com foco no ecossistema **ServOS**.
+> Site institucional da **NextW Sistemas** com um **portfólio** em rota própria.
 > Estética dark premium, IA neural animada e deploy estático em HostGator.
+
+## Rotas
+
+| Rota         | Conteúdo                                                                     |
+| ------------ | ---------------------------------------------------------------------------- |
+| `/`          | Landing institucional atual + destaque clicável para o portfólio              |
+| `/portfolio` | Portfólio: competências, inteligência conectada/RFID, soluções, método, atuação e contato |
+
+A rota `/portfolio` funciona em acesso direto e recarregamento graças ao fallback SPA do `.htaccess`.
 
 🌐 **Produção:** https://www.nextw.com.br
 📍 Americana / SP — Brasil
@@ -49,10 +58,19 @@
 │   └── postbuild.mjs       # Copia .htaccess/robots/sitemap para dist/
 ├── src/
 │   ├── config.js           # Dados centralizados (telefone, email, etc.)
+│   ├── main.jsx            # Rotas: / e /portfolio
+│   ├── portfolio.css       # Estilos da rota de portfólio + destaque da home
 │   ├── App.jsx             # Composição + lazy sections + ErrorBoundary
+│   ├── content/
+│   │   └── portfolio.js            # Competências, soluções, método e princípios
+│   ├── pages/
+│   │   └── PortfolioPage.jsx       # Página /portfolio
 │   ├── components/
 │   │   ├── ErrorBoundary.jsx
 │   │   ├── Navigation.jsx          # Glass + scroll spy + drawer mobile
+│   │   ├── PortfolioNavigation.jsx # Navegação própria do portfólio
+│   │   ├── PortfolioFlow.jsx       # Diagrama do fluxo conectado
+│   │   ├── Seo.jsx                 # Metadados por rota
 │   │   ├── ScrollProgress.jsx
 │   │   ├── WhatsAppFloat.jsx
 │   │   ├── Badge.jsx
@@ -64,8 +82,9 @@
 │   │   └── NeuralSelector.jsx      # Toggle entre Biológica / Digital
 │   └── sections/
 │       ├── Hero.jsx                # Partículas + CTAs + logo
+│       ├── PortfolioSpotlight.jsx  # Destaque clicável para /portfolio
 │       ├── Numeros.jsx             # Contadores animados
-│       ├── Ecossistema.jsx         # Diagrama NextWave (centro) + 6 módulos
+│       ├── Ecossistema.jsx         # Diagrama Next Sistemas (centro) + 6 módulos
 │       ├── Produtos.jsx            # Grid 6 produtos
 │       ├── AutomacaoIA.jsx         # Seção IA com NeuralSelector
 │       ├── TechStack.jsx           # 12 tecnologias
@@ -184,14 +203,14 @@ e rode `npm run build`.
 
 ## 🧠 Hierarquia de marca
 
-- **NextWave** = marca / centro orquestrador ("cérebro de tudo")
-- **ServOS** = nome do ecossistema/sistema onde rodam os módulos
-- **Módulos** orbitam o NextWave e rodam sob a plataforma ServOS
+- **NextW Sistemas** = marca institucional (`NextW` como forma curta)
+- **ServOS** = ecossistema/sistema onde rodam os módulos
+- **Módulos** orbitam a Next Sistemas e rodam sob a plataforma ServOS
 
 Essa hierarquia está explícita em:
-- Hero (badge "NextWave · Ecossistema ServOS")
-- Ecossistema (núcleo central = NextWave, módulos com selo "via NextWave")
+- Hero e Ecossistema (núcleo central = Next Sistemas, módulos com selo "via Next Sistemas")
 - Copy da seção IA
+- Página `/portfolio` (competências, inteligência conectada e RFID)
 
 ---
 

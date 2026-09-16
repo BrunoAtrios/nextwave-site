@@ -4,7 +4,7 @@ export const siteConfig = {
     short: "NextW",
     tagline: "Soluções inteligentes. Resultados reais.",
     description:
-      "Next Sistemas transforma operações com soluções personalizadas, automação e software inteligente para empresas que querem avançar.",
+      "A NextW Sistemas desenvolve software sob medida, automação, integrações, Inteligência Artificial, IoT, AIoT e soluções RFID para operações privadas e públicas.",
     url: "https://www.nextw.com.br",
     logo: "/nextw-logo.png",
   },
